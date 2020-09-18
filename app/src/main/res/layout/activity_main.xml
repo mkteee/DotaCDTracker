@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/main_layout"
     tools:context=".MainActivity">
 
     <Button
@@ -58,7 +59,8 @@
     <TextView
         android:id="@+id/first_hero"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
         android:text="@string/first_hero"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +70,8 @@
     <TextView
         android:id="@+id/second_hero"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
         android:text="@string/second_hero"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +81,8 @@
     <TextView
         android:id="@+id/third_hero"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
         android:text="@string/third_hero"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,7 +91,8 @@
     <TextView
         android:id="@+id/fourth_hero"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
         android:text="@string/fourth_hero"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -96,7 +101,8 @@
     <TextView
         android:id="@+id/fifth_hero"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
         android:text="@string/fifth_hero"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -159,5 +165,56 @@
         app:layout_constraintTop_toBottomOf="@id/fourth_button"
         app:layout_constraintBottom_toTopOf="@id/cont_button"
         android:contentDescription="@string/delete_button" />
+
+    <ImageView
+        android:id="@+id/first_hero_img"
+        android:layout_width="85dp"
+        android:layout_height="50dp"
+        android:contentDescription="@string/hero_images"
+        app:layout_constraintBottom_toTopOf="@id/second_hero_img"
+        app:layout_constraintEnd_toStartOf="@id/first_hero"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/agi_button"
+        app:srcCompat="@android:drawable/ic_menu_crop" />
+    <ImageView
+        android:id="@+id/second_hero_img"
+        android:layout_width="85dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/first_hero_img"
+        app:layout_constraintEnd_toStartOf="@id/second_hero"
+        app:layout_constraintBottom_toTopOf="@id/third_hero_img"
+        app:srcCompat="@android:drawable/ic_menu_crop"
+        android:contentDescription="@string/hero_images" />
+    <ImageView
+        android:id="@+id/third_hero_img"
+        android:layout_width="85dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/second_hero_img"
+        app:layout_constraintEnd_toStartOf="@id/third_hero"
+        app:layout_constraintBottom_toTopOf="@id/fourth_hero_img"
+        app:srcCompat="@android:drawable/ic_menu_crop"
+        android:contentDescription="@string/hero_images" />
+    <ImageView
+        android:id="@+id/fourth_hero_img"
+        android:layout_width="85dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/third_hero_img"
+        app:layout_constraintEnd_toStartOf="@id/fourth_hero"
+        app:layout_constraintBottom_toTopOf="@id/fifth_hero_img"
+        app:srcCompat="@android:drawable/ic_menu_crop"
+        android:contentDescription="@string/hero_images" />
+    <ImageView
+        android:id="@+id/fifth_hero_img"
+        android:layout_width="85dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fourth_hero_img"
+        app:layout_constraintEnd_toStartOf="@id/fifth_hero"
+        app:layout_constraintBottom_toTopOf="@id/cont_button"
+        app:srcCompat="@android:drawable/ic_menu_crop"
+        android:contentDescription="@string/hero_images" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
