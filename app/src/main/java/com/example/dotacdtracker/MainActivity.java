@@ -37,5 +37,8 @@ public class MainActivity extends AppCompatActivity {
         ImageView icon = (ImageView) view;
         String hero_name = (String) icon.getTag();
         Log.i("deb", hero_name);
+
+        Hero first_hero = HeroMap.getHero(hero_name);
+        Log.i("deb", first_hero.getSpell());
     }
 }
