@@ -80,5 +80,6 @@ public class MainActivity extends AppCompatActivity {
         if(strDialog != null) strDialog.dismiss();
         if(agiDialog != null) agiDialog.dismiss();
         if(intDialog != null) intDialog.dismiss();
+        HEROES_ADDED++;
     }
 }
