@@ -6,4 +6,10 @@
     <string name="add_str">Add str</string>
     <string name="add_agi">Add agi</string>
     <string name="add_int">Add int</string>
+    <string name="first_hero">First hero..</string>
+    <string name="second_hero">Second hero..</string>
+    <string name="third_hero">Third hero..</string>
+    <string name="fourth_hero">Fourth hero..</string>
+    <string name="fifth_hero">Fifth hero..</string>
+    <string name="delete_button">delete_button</string>
 </resources>
