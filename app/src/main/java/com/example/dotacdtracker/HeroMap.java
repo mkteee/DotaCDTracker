@@ -26,7 +26,7 @@ public class HeroMap {
             false, false, false, 0, 0,
             new float[]{0, 0}, "reverse_polarity_icon");
 
-    private static final Hero balanar = new Hero("Night Stalker", "Reverse Polarity", 140,
+    private static final Hero balanar = new Hero("Night Stalker", "Dark Ascension", 140,
             true, false, true, 60, 0,
             new float[]{10, 10}, "dark_ascension_item");
 
@@ -212,7 +212,104 @@ public class HeroMap {
                 return beast;
             case "brew":
                 return brew;
-
+            case "doom":
+                return doom;
+            case "shaker":
+                return shaker;
+            case "lycan":
+                return lycan;
+            case "magnus":
+                return magnus;
+            case "balanar":
+                return balanar;
+            case "omni":
+                return omni;
+            case "phoenix":
+                return phoenix;
+            case "sand_king":
+                return sand_king;
+            case "snapfire":
+                return snapfire;
+            case "sven":
+                return sven;
+            case "tide":
+                return tide;
+            case "treant":
+                return treant;
+            case "undying":
+                return undying;
+            case "underlord":
+                return underlord;
+            case "wraith_king":
+                return wk;
+            case "faceless_void":
+                return faceless_void;
+            case "jugg":
+                return jugg;
+            case "luna":
+                return luna;
+            case "dusa":
+                return dusa;
+            case "monkey":
+                return monkey;
+            case "naga":
+                return naga;
+            case "pango":
+                return pango;
+            case "sf":
+                return sf;
+            case "slark":
+                return slark;
+            case "spec":
+                return spec;
+            case "tb":
+                return tb;
+            case "troll":
+                return troll;
+            case "veno":
+                return veno;
+            case "weaver":
+                return weaver;
+            case "bane":
+                return bane;
+            case "bat":
+                return bat;
+            case "cm":
+                return cm;
+            case "dark_seer":
+                return dark_seer;
+            case "dp":
+                return dp;
+            case "disruptor":
+                return disruptor;
+            case "enigma":
+                return enigma;
+            case "invo":
+                return invo;
+            case "kotl":
+                return kotl;
+            case "lich":
+                return lich;
+            case "lion":
+                return lion;
+            case "necro":
+                return necro;
+            case "od":
+                return od;
+            case "qop":
+                return qop;
+            case "shaman":
+                return shaman;
+            case "silencer":
+                return silencer;
+            case "warlock":
+                return warlock;
+            case "wyvern":
+                return wyvern;
+            case "witch_doctor":
+                return witch_doctor;
+            case "zeus":
+                return zeus;
         }
         return brew;
     }

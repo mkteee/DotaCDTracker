@@ -92,14 +92,14 @@
         android:layout_width="129dp"
         android:layout_height="82dp"
         app:layout_constraintStart_toEndOf="@+id/pango"
-        app:layout_constraintEnd_toStartOf="@+id/phoenix"
+        app:layout_constraintEnd_toStartOf="@+id/slark"
         app:layout_constraintTop_toBottomOf="@id/monkey"
         app:srcCompat="@drawable/shadow_fiend_icon" />
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
-        android:tag="phoenix"
-        android:id="@+id/phoenix"
+        android:tag="slark"
+        android:id="@+id/slark"
         android:layout_width="129dp"
         android:layout_height="82dp"
         app:layout_constraintStart_toEndOf="@+id/sf"
