@@ -1,6 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/beast"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/brew"
+        app:srcCompat="@drawable/beastmaster_icon" />
+
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/brew"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toEndOf="@+id/beast"
+        app:layout_constraintEnd_toStartOf="@+id/doom"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/brewmaster_icon" />
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/doom"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toEndOf="@+id/brew"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/doom_icon"/>
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/shaker"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/beast"
+        app:layout_constraintEnd_toStartOf="@id/brew"
+        app:srcCompat="@drawable/earthshaker_icon" />
+
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/lycan"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toEndOf="@+id/shaker"
+        app:layout_constraintEnd_toStartOf="@+id/magnus"
+        app:layout_constraintTop_toBottomOf="@id/beast"
+        app:srcCompat="@drawable/lycan_icon" />
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/magnus"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toEndOf="@+id/brew"
+        app:layout_constraintTop_toBottomOf="@id/beast"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/magnus_icon"/>
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/balanar"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/shaker"
+        app:layout_constraintEnd_toStartOf="@id/brew"
+        app:srcCompat="@drawable/night_stalker_icon" />
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/omni"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toEndOf="@+id/shaker"
+        app:layout_constraintEnd_toStartOf="@+id/magnus"
+        app:layout_constraintTop_toBottomOf="@id/shaker"
+        app:srcCompat="@drawable/omniknight_icon" />
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/phoenix"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toEndOf="@+id/brew"
+        app:layout_constraintTop_toBottomOf="@id/shaker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/phoenix_icon"/>
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/sand_king"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/balanar"
+        app:layout_constraintEnd_toStartOf="@id/brew"
+        app:srcCompat="@drawable/sand_king_icon" />
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/snapfire"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toEndOf="@+id/shaker"
+        app:layout_constraintEnd_toStartOf="@+id/magnus"
+        app:layout_constraintTop_toBottomOf="@id/balanar"
+        app:srcCompat="@drawable/snapfire_icon" />
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/sven"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toEndOf="@+id/brew"
+        app:layout_constraintTop_toBottomOf="@id/balanar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/sven_icon"/>
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/tide"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sand_king"
+        app:layout_constraintEnd_toStartOf="@id/brew"
+        app:srcCompat="@drawable/tidehunter_icon" />
+
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/treant"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toEndOf="@+id/shaker"
+        app:layout_constraintEnd_toStartOf="@+id/magnus"
+        app:layout_constraintTop_toBottomOf="@id/sand_king"
+        app:srcCompat="@drawable/treant_protector_icon" />
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/undying"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toEndOf="@+id/brew"
+        app:layout_constraintTop_toBottomOf="@id/sand_king"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/undying_icon"/>
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/underlord"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tide"
+        app:layout_constraintEnd_toStartOf="@id/brew"
+        app:srcCompat="@drawable/underlord_icon" />
+
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/wraith_king"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toEndOf="@+id/shaker"
+        app:layout_constraintEnd_toStartOf="@+id/magnus"
+        app:layout_constraintTop_toBottomOf="@id/tide"
+        app:srcCompat="@drawable/wraith_king_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

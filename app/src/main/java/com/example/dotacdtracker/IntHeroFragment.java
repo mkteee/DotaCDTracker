@@ -9,15 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-public class StrHeroFragment extends DialogFragment {
+public class IntHeroFragment extends DialogFragment {
 
-    public static StrHeroFragment newInstance() {
-        return new StrHeroFragment();
+    public static IntHeroFragment newInstance() {
+        return new IntHeroFragment();
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.str_hero_fragment, container);
+        return inflater.inflate(R.layout.int_hero_fragment, container);
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

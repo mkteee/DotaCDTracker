@@ -1,6 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/faceless_void"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/jugg"
+        app:srcCompat="@drawable/faceless_void_icon" />
+
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/jugg"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toEndOf="@+id/faceless_void"
+        app:layout_constraintEnd_toStartOf="@+id/luna"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/juggernaut_icon" />
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/luna"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toEndOf="@+id/jugg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/luna_icon"/>
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/dusa"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/faceless_void"
+        app:layout_constraintEnd_toStartOf="@id/jugg"
+        app:srcCompat="@drawable/medusa_icon" />
+
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/monkey"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toEndOf="@+id/dusa"
+        app:layout_constraintEnd_toStartOf="@+id/naga"
+        app:layout_constraintTop_toBottomOf="@id/jugg"
+        app:srcCompat="@drawable/monkey_king_icon" />
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/naga"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toEndOf="@+id/monkey"
+        app:layout_constraintTop_toBottomOf="@id/jugg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/naga_siren_icon"/>
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/pango"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/monkey"
+        app:layout_constraintEnd_toStartOf="@id/sf"
+        app:srcCompat="@drawable/pangolier_icon" />
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/sf"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toEndOf="@+id/pango"
+        app:layout_constraintEnd_toStartOf="@+id/phoenix"
+        app:layout_constraintTop_toBottomOf="@id/monkey"
+        app:srcCompat="@drawable/shadow_fiend_icon" />
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/phoenix"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toEndOf="@+id/sf"
+        app:layout_constraintTop_toBottomOf="@id/monkey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/slark_icon"/>
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/spec"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sf"
+        app:layout_constraintEnd_toStartOf="@id/tb"
+        app:srcCompat="@drawable/spectre_icon" />
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/tb"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toEndOf="@+id/spec"
+        app:layout_constraintEnd_toStartOf="@+id/troll"
+        app:layout_constraintTop_toBottomOf="@id/sf"
+        app:srcCompat="@drawable/terrorblade_icon" />
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/troll"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toEndOf="@+id/tb"
+        app:layout_constraintTop_toBottomOf="@id/sf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/troll_warlord_icon"/>
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/veno"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tb"
+        app:layout_constraintEnd_toStartOf="@id/weaver"
+        app:srcCompat="@drawable/venomancer_icon" />
+
+    <ImageView
+        android:onClick="heroClicked"
+        android:contentDescription="@string/hero_icons"
+        android:id="@+id/weaver"
+        android:layout_width="129dp"
+        android:layout_height="82dp"
+        app:layout_constraintStart_toEndOf="@+id/veno"
+        app:layout_constraintEnd_toStartOf="@+id/troll"
+        app:layout_constraintTop_toBottomOf="@id/tb"
+        app:srcCompat="@drawable/weaver_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
