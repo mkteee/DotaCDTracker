@@ -8,6 +8,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="beast"
         android:id="@+id/beast"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -19,6 +20,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="brew"
         android:id="@+id/brew"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -29,6 +31,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="doom"
         android:id="@+id/doom"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -39,6 +42,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="shaker"
         android:id="@+id/shaker"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -50,6 +54,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="lycan"
         android:id="@+id/lycan"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -60,6 +65,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="magnus"
         android:id="@+id/magnus"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -70,6 +76,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="balanar"
         android:id="@+id/balanar"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -80,6 +87,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="omni"
         android:id="@+id/omni"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -90,6 +98,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="phoenix"
         android:id="@+id/phoenix"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -100,6 +109,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="sand_king"
         android:id="@+id/sand_king"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -110,6 +120,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="snapfire"
         android:id="@+id/snapfire"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -120,6 +131,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="sven"
         android:id="@+id/sven"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -130,6 +142,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="tide"
         android:id="@+id/tide"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -141,6 +154,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="treant"
         android:id="@+id/treant"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -151,6 +165,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="undying"
         android:id="@+id/undying"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -161,6 +176,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="underlord"
         android:id="@+id/underlord"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -172,6 +188,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="wraith_king"
         android:id="@+id/wraith_king"
         android:layout_width="129dp"
         android:layout_height="82dp"

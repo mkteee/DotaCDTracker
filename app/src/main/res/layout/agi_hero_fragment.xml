@@ -7,6 +7,7 @@
 
     <ImageView
         android:onClick="heroClicked"
+        android:tag="faceless_void"
         android:contentDescription="@string/hero_icons"
         android:id="@+id/faceless_void"
         android:layout_width="129dp"
@@ -19,6 +20,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="jugg"
         android:id="@+id/jugg"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -29,6 +31,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="luna"
         android:id="@+id/luna"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -39,6 +42,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="dusa"
         android:id="@+id/dusa"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -50,6 +54,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="monkey"
         android:id="@+id/monkey"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -60,6 +65,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="naga"
         android:id="@+id/naga"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -70,6 +76,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="pango"
         android:id="@+id/pango"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -80,6 +87,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="sf"
         android:id="@+id/sf"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -90,6 +98,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="phoenix"
         android:id="@+id/phoenix"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -100,6 +109,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="spec"
         android:id="@+id/spec"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -110,6 +120,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="tb"
         android:id="@+id/tb"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -120,6 +131,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="troll"
         android:id="@+id/troll"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -130,6 +142,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="veno"
         android:id="@+id/veno"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -141,6 +154,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="weaver"
         android:id="@+id/weaver"
         android:layout_width="129dp"
         android:layout_height="82dp"

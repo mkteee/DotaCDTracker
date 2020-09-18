@@ -8,6 +8,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="bane"
         android:id="@+id/bane"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -18,6 +19,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="bat"
         android:id="@+id/bat"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -28,6 +30,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="cm"
         android:id="@+id/cm"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -38,6 +41,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="dark_seer"
         android:id="@+id/dark_seer"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -48,6 +52,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="dp"
         android:id="@+id/dp"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -58,6 +63,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="disruptor"
         android:id="@+id/disruptor"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -68,6 +74,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="enigma"
         android:id="@+id/enigma"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -78,6 +85,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="invo"
         android:id="@+id/invo"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -88,6 +96,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="kotl"
         android:id="@+id/kotl"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -98,6 +107,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="lich"
         android:id="@+id/lich"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -108,6 +118,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="lion"
         android:id="@+id/lion"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -118,6 +129,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="necro"
         android:id="@+id/necro"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -128,6 +140,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="od"
         android:id="@+id/od"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -138,6 +151,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="qop"
         android:id="@+id/qop"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -148,6 +162,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="shaman"
         android:id="@+id/shaman"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -158,6 +173,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="silencer"
         android:id="@+id/silencer"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -168,6 +184,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="warlock"
         android:id="@+id/warlock"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -178,6 +195,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="wyvern"
         android:id="@+id/wyvern"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -188,6 +206,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="witch_doctor"
         android:id="@+id/witch_doctor"
         android:layout_width="129dp"
         android:layout_height="82dp"
@@ -198,6 +217,7 @@
     <ImageView
         android:onClick="heroClicked"
         android:contentDescription="@string/hero_icons"
+        android:tag="zeus"
         android:id="@+id/zeus"
         android:layout_width="129dp"
         android:layout_height="82dp"
