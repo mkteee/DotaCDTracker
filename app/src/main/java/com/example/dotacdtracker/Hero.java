@@ -4,18 +4,18 @@ public class Hero {
 
     String name;
     String spell;
-    int cooldown;
+    float cooldown;
     boolean has_cd_talent;
     boolean has_aghs_reduction;
     boolean has_lvl_reduction;
-    int talent_reduction;
-    int aghs_reduction;
-    int [] lvl_reduction;
+    float talent_reduction;
+    float aghs_reduction;
+    float [] lvl_reduction;
     String icon_name;
 
-    public Hero(String name, String spell, int cooldown, boolean talent_red,
-                boolean aghs_red, boolean lvl_red, int talent_reduction,
-                int aghs_reduction, int [] lvl_reduction, String icon_name){
+    public Hero(String name, String spell, float cooldown, boolean talent_red,
+                boolean aghs_red, boolean lvl_red, float talent_reduction,
+                float aghs_reduction, float [] lvl_reduction, String icon_name){
         this.name = name;
         this.spell = spell;
         this.cooldown = cooldown;
@@ -34,7 +34,7 @@ public class Hero {
     public String getSpell(){
         return spell;
     }
-    public int getCooldown(){
+    public float getCooldown(){
         return cooldown;
     }
     public boolean getTalent(){
@@ -46,13 +46,13 @@ public class Hero {
     public boolean getAghs(){
         return has_aghs_reduction;
     }
-    public int getTalent_reduction(){
+    public float getTalent_reduction(){
         return talent_reduction;
     }
-    public int getAghs_reduction(){
+    public float getAghs_reduction(){
         return aghs_reduction;
     }
-    public int [] getLvl_reduction(){
+    public float [] getLvl_reduction(){
         return lvl_reduction;
     }
     public String getIcon_name(){
