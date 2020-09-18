@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">DotaCDTracker</string>
+    <string name="choose_hero">Choose hero</string>
+    <string name="add_your_heroes">Add your heroes</string>
+    <string name="cont">Continue</string>
+    <string name="add_str">Add str</string>
+    <string name="add_agi">Add agi</string>
+    <string name="add_int">Add int</string>
 </resources>
