@@ -1,4 +1,4 @@
-package com.example.dotacdtracker;
+package com.example.dotacdtracker.Data;
 
 public class HeroMap {
 

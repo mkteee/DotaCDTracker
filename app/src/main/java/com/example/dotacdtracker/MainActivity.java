@@ -5,11 +5,16 @@ import androidx.fragment.app.FragmentManager;
 
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.dotacdtracker.Data.Hero;
+import com.example.dotacdtracker.Data.HeroMap;
+import com.example.dotacdtracker.Fragments.AgiHeroFragment;
+import com.example.dotacdtracker.Fragments.IntHeroFragment;
+import com.example.dotacdtracker.Fragments.StrHeroFragment;
 
 import java.util.ArrayList;
 
