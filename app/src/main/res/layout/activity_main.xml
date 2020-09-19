@@ -111,59 +111,69 @@
 
     <ImageButton
         android:id="@+id/first_button"
+        app:srcCompat="@android:drawable/ic_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#00FFFFFF"
         android:contentDescription="@string/delete_button"
-        app:layout_constraintBottom_toTopOf="@id/second_button"
+        android:clickable="false"
+        android:onClick="deleteHero"
+        app:layout_constraintBottom_toBottomOf="@id/first_hero"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/first_hero"
-        app:layout_constraintTop_toBottomOf="@id/agi_button"
-        app:srcCompat="@android:drawable/ic_delete" />
+        app:layout_constraintTop_toTopOf="@id/first_hero" />
 
     <ImageButton
         android:id="@+id/second_button"
+        app:srcCompat="@android:drawable/ic_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#00FFFFFF"
         android:contentDescription="@string/delete_button"
-        app:layout_constraintBottom_toTopOf="@id/third_button"
+        android:clickable="false"
+        android:onClick="deleteHero"
+        app:layout_constraintBottom_toBottomOf="@id/second_hero"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/first_hero"
-        app:layout_constraintTop_toBottomOf="@id/first_button"
-        app:srcCompat="@android:drawable/ic_delete" />
+        app:layout_constraintTop_toTopOf="@id/second_hero" />
     <ImageButton
         android:id="@+id/third_button"
+        app:srcCompat="@android:drawable/ic_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#00FFFFFF"
-        app:srcCompat="@android:drawable/ic_delete"
+        android:clickable="false"
+        android:onClick="deleteHero"
         app:layout_constraintStart_toEndOf="@id/first_hero"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/second_button"
-        app:layout_constraintBottom_toTopOf="@id/fourth_button"
+        app:layout_constraintTop_toTopOf="@id/third_hero"
+        app:layout_constraintBottom_toBottomOf="@id/third_hero"
         android:contentDescription="@string/delete_button" />
     <ImageButton
         android:id="@+id/fourth_button"
+        app:srcCompat="@android:drawable/ic_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#00FFFFFF"
-        app:srcCompat="@android:drawable/ic_delete"
+        android:clickable="false"
+        android:onClick="deleteHero"
         app:layout_constraintStart_toEndOf="@id/first_hero"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/third_button"
-        app:layout_constraintBottom_toTopOf="@id/fifth_button"
+        app:layout_constraintTop_toTopOf="@id/fourth_hero"
+        app:layout_constraintBottom_toBottomOf="@id/fourth_hero"
         android:contentDescription="@string/delete_button" />
     <ImageButton
         android:id="@+id/fifth_button"
+        app:srcCompat="@android:drawable/ic_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#00FFFFFF"
-        app:srcCompat="@android:drawable/ic_delete"
+        android:clickable="false"
+        android:onClick="deleteHero"
         app:layout_constraintStart_toEndOf="@id/first_hero"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fourth_button"
-        app:layout_constraintBottom_toTopOf="@id/cont_button"
+        app:layout_constraintTop_toTopOf="@id/fifth_hero"
+        app:layout_constraintBottom_toBottomOf="@id/fifth_hero"
         android:contentDescription="@string/delete_button" />
 
     <ImageView
