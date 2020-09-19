@@ -3,6 +3,7 @@ package com.example.dotacdtracker;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -26,6 +27,22 @@ public class TrackerActivity extends AppCompatActivity {
         for(String hero : heroes_string){
             heroes.add(HeroMap.getHero(hero));
         }
+    }
+
+    public void onSpellClicked(View view){
+
+    }
+
+    public void onNeutralClicked(View view){
+
+    }
+
+    public void onRoshanClicked(View view){
+
+    }
+
+    public void onAegisClicked(View view){
+
     }
 
 }
