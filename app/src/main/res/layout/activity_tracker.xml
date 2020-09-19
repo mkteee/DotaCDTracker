@@ -381,4 +381,116 @@
         app:layout_constraintTop_toBottomOf="@id/tier1"
         app:srcCompat="@drawable/ic_spell_not_ready" />
 
+    <Button
+        android:id="@+id/neutral_button1"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:text="@string/_0_40"
+        app:layout_constraintStart_toEndOf="@id/neutral_timer"
+        app:layout_constraintEnd_toStartOf="@id/neutral_button2"
+        app:layout_constraintTop_toBottomOf="@id/tier1_indicator"
+        app:layout_constraintBottom_toTopOf="@id/seperator_four"/>
+    <Button
+        android:id="@+id/neutral_button2"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:text="@string/_0_20"
+        app:layout_constraintStart_toEndOf="@id/neutral_button1"
+        app:layout_constraintEnd_toStartOf="@id/neutral_button3"
+        app:layout_constraintTop_toBottomOf="@+id/tier1_indicator"
+        app:layout_constraintBottom_toTopOf="@id/seperator_four"/>
+    <Button
+        android:id="@+id/neutral_button3"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:text="@string/_10s"
+        app:layout_constraintStart_toEndOf="@id/neutral_button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tier1_indicator"
+        app:layout_constraintBottom_toTopOf="@id/seperator_four"/>
+
+    <ImageView
+        android:id="@+id/spell_btn1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        app:srcCompat="@drawable/black_hole_icon"
+        app:layout_constraintTop_toBottomOf="@id/seperator_four"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/spell_btn2"
+        android:contentDescription="@string/spell_icons" />
+
+    <ImageView
+        android:id="@+id/spell_btn2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        app:srcCompat="@drawable/black_hole_icon"
+        app:layout_constraintTop_toBottomOf="@id/spell_btn1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/spell_btn3"
+        android:contentDescription="@string/spell_icons"/>
+    <ImageView
+        android:id="@+id/spell_btn3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        app:srcCompat="@drawable/black_hole_icon"
+        app:layout_constraintTop_toBottomOf="@id/spell_btn2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/spell_btn4"
+        android:contentDescription="@string/spell_icons"/>
+    <ImageView
+        android:id="@+id/spell_btn4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        app:srcCompat="@drawable/black_hole_icon"
+        app:layout_constraintTop_toBottomOf="@id/spell_btn3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/spell_btn5"
+        android:contentDescription="@string/spell_icons"/>
+    <ImageView
+        android:id="@+id/spell_btn5"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        app:srcCompat="@drawable/black_hole_icon"
+        app:layout_constraintTop_toBottomOf="@id/spell_btn4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/spell_icons"/>
+
+    <View
+        android:id="@+id/spell_seperator1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/black"
+        app:layout_constraintBottom_toTopOf="@id/spell_btn2"
+        app:layout_constraintTop_toBottomOf="@id/spell_btn1" />
+
+    <View
+        android:id="@+id/spell_seperator2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/black"
+        app:layout_constraintBottom_toTopOf="@+id/spell_btn3"
+        app:layout_constraintTop_toBottomOf="@+id/spell_btn2" />
+
+    <View
+        android:id="@+id/spell_seperator3"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/black"
+        app:layout_constraintBottom_toTopOf="@+id/spell_btn4"
+        app:layout_constraintTop_toBottomOf="@+id/spell_btn3" />
+
+    <View
+        android:id="@+id/spell_seperator4"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/black"
+        app:layout_constraintBottom_toTopOf="@+id/spell_btn5"
+        app:layout_constraintTop_toBottomOf="@+id/spell_btn4" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
