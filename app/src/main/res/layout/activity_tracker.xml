@@ -7,13 +7,378 @@
     android:id="@+id/tracker_layout"
     tools:context=".TrackerActivity">
 
-    <Button
-        android:id="@+id/button"
+
+    <ImageView
+        android:id="@+id/first_spell"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toStartOf="@id/second_spell"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/black_hole_icon"
+        android:contentDescription="@string/spell_icons" />
+
+    <ImageView
+        android:id="@+id/second_spell"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toEndOf="@id/first_spell"
+        app:layout_constraintEnd_toStartOf="@id/third_spell"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/black_hole_icon"
+        android:contentDescription="@string/spell_icons"/>
+
+    <ImageView
+        android:id="@+id/third_spell"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toEndOf="@id/second_spell"
+        app:layout_constraintEnd_toStartOf="@id/fourth_spell"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/black_hole_icon"
+        android:contentDescription="@string/spell_icons"/>
+
+    <ImageView
+        android:id="@+id/fourth_spell"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toEndOf="@+id/third_spell"
+        app:layout_constraintEnd_toStartOf="@id/fifth_spell"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/black_hole_icon"
+        android:contentDescription="@string/spell_icons"/>
+
+    <ImageView
+        android:id="@+id/fifth_spell"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/fourth_spell"
+        app:srcCompat="@drawable/black_hole_icon"
+        tools:layout_editor_absoluteX="263dp"
+        android:contentDescription="@string/spell_icons"/>
+
+    <TextView
+        android:id="@+id/first_spell_cd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/spell_ready"
+        app:layout_constraintEnd_toEndOf="@id/first_spell"
+        app:layout_constraintStart_toStartOf="@id/first_spell"
+        app:layout_constraintTop_toBottomOf="@id/first_spell" />
+
+    <TextView
+        android:id="@+id/second_spell_cd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/spell_ready"
+        app:layout_constraintEnd_toEndOf="@id/second_spell"
+        app:layout_constraintStart_toStartOf="@id/second_spell"
+        app:layout_constraintTop_toBottomOf="@id/second_spell" />
+
+    <TextView
+        android:id="@+id/third_spell_cd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/spell_ready"
+        app:layout_constraintEnd_toEndOf="@id/third_spell"
+        app:layout_constraintStart_toStartOf="@id/third_spell"
+        app:layout_constraintTop_toBottomOf="@id/third_spell" />
+
+    <TextView
+        android:id="@+id/fourth_spell_cd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/spell_ready"
+        app:layout_constraintEnd_toEndOf="@id/fourth_spell"
+        app:layout_constraintStart_toEndOf="@id/third_spell"
+        app:layout_constraintTop_toBottomOf="@id/fourth_spell" />
+
+    <TextView
+        android:id="@+id/fifth_spell_cd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/spell_ready"
+        app:layout_constraintEnd_toEndOf="@id/fifth_spell"
+        app:layout_constraintStart_toEndOf="@id/fourth_spell"
+        app:layout_constraintTop_toBottomOf="@id/fifth_spell" />
+
+    <ImageView
+        android:id="@+id/first_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/first_spell_cd"
+        app:layout_constraintStart_toStartOf="@id/first_spell_cd"
+        app:layout_constraintTop_toBottomOf="@id/first_spell_cd"
+        app:srcCompat="@drawable/ic_spell_ready"
+        tools:layout_editor_absoluteY="103dp"
+        android:contentDescription="@string/spell_indicators" />
+
+    <ImageView
+        android:id="@+id/second_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/second_spell_cd"
+        app:layout_constraintStart_toStartOf="@id/second_spell_cd"
+        app:layout_constraintTop_toBottomOf="@id/second_spell_cd"
+        app:srcCompat="@drawable/ic_spell_ready"
+        android:contentDescription="@string/spell_indicators"/>
+
+    <ImageView
+        android:id="@+id/third_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/third_spell_cd"
+        app:layout_constraintStart_toStartOf="@id/third_spell_cd"
+        app:layout_constraintTop_toBottomOf="@id/third_spell_cd"
+        app:srcCompat="@drawable/ic_spell_ready"
+        android:contentDescription="@string/spell_indicators"/>
+
+    <ImageView
+        android:id="@+id/fourth_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/fourth_spell_cd"
+        app:layout_constraintStart_toStartOf="@id/fourth_spell_cd"
+        app:layout_constraintTop_toBottomOf="@id/fourth_spell_cd"
+        app:srcCompat="@drawable/ic_spell_ready"
+        android:contentDescription="@string/spell_indicators"/>
+
+    <ImageView
+        android:id="@+id/fifth_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/fifth_spell_cd"
+        app:layout_constraintStart_toStartOf="@id/fifth_spell_cd"
+        app:layout_constraintTop_toBottomOf="@id/fifth_spell_cd"
+        app:srcCompat="@drawable/ic_spell_ready"
+        android:contentDescription="@string/spell_indicators"/>
+
+    <View
+        android:id="@+id/seperator_one"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@id/third_indicator"
+        android:background="@android:color/black"/>
+    <View
+        android:layout_width="match_parent"
+        android:id="@+id/seperator_two"
+        android:layout_height="3dp"
+        android:layout_marginTop="85dp"
+        app:layout_constraintTop_toBottomOf="@id/seperator_one"
+        android:background="@android:color/black"/>
+    <View
+        android:id="@+id/seperator_three"
+        android:layout_width="2dp"
+        android:layout_height="70dp"
+        app:layout_constraintTop_toBottomOf="@id/seperator_one"
+        app:layout_constraintBottom_toTopOf="@id/seperator_two"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@android:color/black" />
+
+    <ImageView
+        android:id="@+id/roshan"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/seperator_one"
+        app:layout_constraintBottom_toTopOf="@id/seperator_two"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/roshan_icon"
+        android:contentDescription="@string/roshan" />
+
+    <TextView
+        android:id="@+id/roshan_cd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/roshan_timer"
+        app:layout_constraintBottom_toTopOf="@id/roshan_indicator"
+        app:layout_constraintEnd_toStartOf="@id/seperator_three"
+        app:layout_constraintStart_toEndOf="@id/roshan"
+        app:layout_constraintTop_toBottomOf="@id/seperator_one" />
+
+    <ImageView
+        android:id="@+id/roshan_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_spell_ready"
+        app:layout_constraintBottom_toTopOf="@id/seperator_two"
+        app:layout_constraintEnd_toStartOf="@id/seperator_three"
+        app:layout_constraintStart_toEndOf="@id/roshan"
+        app:layout_constraintTop_toBottomOf="@id/roshan_cd"
+        android:contentDescription="@string/roshan_ind" />
+
+    <ImageView
+        android:id="@+id/aegis"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintTop_toBottomOf="@id/seperator_one"
+        app:layout_constraintBottom_toTopOf="@id/seperator_two"
+        app:layout_constraintStart_toStartOf="@id/seperator_three"
+        app:srcCompat="@drawable/aegis_icon"
+        android:contentDescription="@string/aegis" />
+
+    <TextView
+        android:id="@+id/aegis_cd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/aegis_timer"
+        app:layout_constraintBottom_toTopOf="@id/aegis_indicator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/aegis"
+        app:layout_constraintTop_toBottomOf="@id/seperator_one" />
+
+    <ImageView
+        android:id="@+id/aegis_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_spell_ready"
+        app:layout_constraintBottom_toTopOf="@id/seperator_two"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/aegis"
+        app:layout_constraintTop_toBottomOf="@id/aegis_cd"
+        android:contentDescription="@string/aegis_ind" />
+
+    <View
+        android:layout_width="match_parent"
+        android:id="@+id/seperator_four"
+        android:layout_height="3dp"
+        android:layout_marginTop="145dp"
+        app:layout_constraintTop_toBottomOf="@id/seperator_two"
+        android:background="@android:color/black"/>
+
+    <ImageView
+        android:id="@+id/tier1"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        app:srcCompat="@drawable/shovel_icon"
+        app:layout_constraintTop_toBottomOf="@id/seperator_two"
+        app:layout_constraintBottom_toTopOf="@id/tier1_indicator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tier2"
+        android:contentDescription="@string/neutral_items" />
+
+    <ImageView
+        android:id="@+id/tier2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        app:srcCompat="@drawable/vambrace_icon"
+        app:layout_constraintTop_toBottomOf="@id/seperator_two"
+        app:layout_constraintBottom_toTopOf="@id/tier1_indicator"
+        app:layout_constraintStart_toEndOf="@id/tier1"
+        app:layout_constraintEnd_toStartOf="@id/tier3"
+        android:contentDescription="@string/neutral_items" />
+
+    <ImageView
+        android:id="@+id/tier3"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        app:srcCompat="@drawable/telescope_icon"
+        app:layout_constraintTop_toBottomOf="@id/seperator_two"
+        app:layout_constraintBottom_toTopOf="@id/tier1_indicator"
+        app:layout_constraintStart_toEndOf="@id/tier2"
+        app:layout_constraintEnd_toStartOf="@id/tier4"
+        android:contentDescription="@string/neutral_items" />
+
+    <ImageView
+        android:id="@+id/tier4"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        app:srcCompat="@drawable/lamp_icon"
+        app:layout_constraintTop_toBottomOf="@id/seperator_two"
+        app:layout_constraintBottom_toTopOf="@id/tier1_indicator"
+        app:layout_constraintStart_toEndOf="@id/tier3"
+        app:layout_constraintEnd_toStartOf="@id/tier5"
+        android:contentDescription="@string/neutral_items" />
+
+    <ImageView
+        android:id="@+id/tier5"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        app:srcCompat="@drawable/stygian_icon"
+        app:layout_constraintTop_toBottomOf="@id/seperator_two"
+        app:layout_constraintBottom_toTopOf="@id/tier1_indicator"
+        app:layout_constraintStart_toEndOf="@id/tier4"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/neutral_items" />
+
+    <TextView
+        android:id="@+id/neutral_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next_neutral_item"
+        app:layout_constraintBottom_toTopOf="@id/seperator_four"
+        app:layout_constraintEnd_toEndOf="@id/tier2"
+        app:layout_constraintStart_toStartOf="@id/tier1_indicator"
+        app:layout_constraintTop_toBottomOf="@id/tier1_indicator" />
+
+    <ImageView
+        android:id="@+id/tier1_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/neutral_timer"
+        app:layout_constraintEnd_toEndOf="@id/tier1"
+        app:layout_constraintStart_toStartOf="@id/tier1"
+        app:layout_constraintTop_toBottomOf="@id/tier1"
+        app:srcCompat="@drawable/ic_spell_not_ready"
+        android:contentDescription="@string/neutral_items_ind" />
+
+    <ImageView
+        android:id="@+id/tier2_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/neutral_items_ind"
+        app:layout_constraintBottom_toTopOf="@id/neutral_timer"
+        app:layout_constraintEnd_toEndOf="@id/tier2"
+        app:layout_constraintStart_toStartOf="@id/tier2"
+        app:layout_constraintTop_toBottomOf="@id/tier1"
+        app:srcCompat="@drawable/ic_spell_not_ready" />
+
+    <ImageView
+        android:id="@+id/tier3_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/neutral_items_ind"
+        app:layout_constraintBottom_toTopOf="@id/neutral_timer"
+        app:layout_constraintEnd_toEndOf="@id/tier3"
+        app:layout_constraintStart_toStartOf="@id/tier3"
+        app:layout_constraintTop_toBottomOf="@id/tier1"
+        app:srcCompat="@drawable/ic_spell_not_ready" />
+
+    <ImageView
+        android:id="@+id/tier4_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/neutral_items_ind"
+        app:layout_constraintBottom_toTopOf="@id/neutral_timer"
+        app:layout_constraintEnd_toEndOf="@id/tier4"
+        app:layout_constraintStart_toStartOf="@id/tier4"
+        app:layout_constraintTop_toBottomOf="@id/tier1"
+        app:srcCompat="@drawable/ic_spell_not_ready" />
+
+    <ImageView
+        android:id="@+id/tier5_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/neutral_items_ind"
+        app:layout_constraintBottom_toTopOf="@id/neutral_timer"
+        app:layout_constraintEnd_toEndOf="@id/tier5"
+        app:layout_constraintStart_toStartOf="@id/tier5"
+        app:layout_constraintTop_toBottomOf="@id/tier1"
+        app:srcCompat="@drawable/ic_spell_not_ready" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

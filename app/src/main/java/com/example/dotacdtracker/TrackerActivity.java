@@ -26,10 +26,6 @@ public class TrackerActivity extends AppCompatActivity {
         for(String hero : heroes_string){
             heroes.add(HeroMap.getHero(hero));
         }
-
-        for(Hero hero : heroes){
-            Log.i("deb", hero.getSpell());
-        }
     }
 
 }
