@@ -3,6 +3,7 @@ package com.example.dotacdtracker;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
@@ -201,5 +202,17 @@ public class MainActivity extends AppCompatActivity {
         }
         heroes.remove(heroes.size()-1);
         HEROES_ADDED--;
+    }
+    public void onContinueClicked(View view){
+
+        if(heroes.get(0) == null) return;
+
+        Intent intent = new Intent(this, TrackerActivity.class);
+        String [] heroes_string = new String[HEROES_ADDED];
+        for(int i=0; i<HEROES_ADDED; i++) {
+            heroes_string[i] = heroes.get(i).getId();
+        }
+        intent.putExtra("heroes_string", heroes_string);
+        startActivity(intent);
     }
 }

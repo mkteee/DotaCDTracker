@@ -13,10 +13,12 @@ public class Hero {
     float [] lvl_reduction;
     String icon_name;
     String avatar_name;
+    String id;
 
     public Hero(String name, String spell, float cooldown, boolean talent_red,
                 boolean aghs_red, boolean lvl_red, float talent_reduction,
-                float aghs_reduction, float [] lvl_reduction, String icon_name, String avatar_name){
+                float aghs_reduction, float [] lvl_reduction, String icon_name, String avatar_name,
+                String id){
         this.name = name;
         this.spell = spell;
         this.cooldown = cooldown;
@@ -28,6 +30,7 @@ public class Hero {
         this.lvl_reduction = lvl_reduction;
         this.icon_name = icon_name;
         this.avatar_name = avatar_name;
+        this.id = id;
     }
 
     public String getName(){
@@ -62,5 +65,8 @@ public class Hero {
     }
     public String getAvatar_name(){
         return avatar_name;
+    }
+    public String getId(){
+        return id;
     }
 }
