@@ -523,7 +523,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@id/lvl1"
-        app:layout_constraintEnd_toStartOf="@id/octarine1_button"
+        app:layout_constraintEnd_toStartOf="@id/options1"
         app:layout_constraintStart_toEndOf="@id/aghs1"
         app:layout_constraintTop_toBottomOf="@id/talent1_pic" />
 
@@ -534,26 +534,27 @@
         app:layout_constraintBottom_toBottomOf="@id/lvl1"
         app:layout_constraintEnd_toStartOf="@id/talent1"
         app:layout_constraintStart_toEndOf="@id/lvl1"
-        app:layout_constraintTop_toBottomOf="@id/talent1_pic" />
-
-    <ImageView
-        android:id="@+id/aghs1_pic"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:contentDescription="@string/misc_pics"
-        app:layout_constraintBottom_toTopOf="@+id/talent1"
-        app:layout_constraintStart_toStartOf="@+id/talent1"
-        app:srcCompat="@drawable/aghs_icon" />
+        app:layout_constraintTop_toBottomOf="@id/aghs1_pic" />
 
     <ImageView
         android:id="@+id/talent1_pic"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:contentDescription="@string/misc_pics"
+        app:layout_constraintBottom_toTopOf="@+id/talent1"
+        app:layout_constraintStart_toStartOf="@+id/talent1"
+        app:layout_constraintTop_toTopOf="@id/lvl1"
+        app:srcCompat="@drawable/talents_icon" />
+
+    <ImageView
+        android:id="@+id/aghs1_pic"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:contentDescription="@string/misc_pics"
         app:layout_constraintBottom_toTopOf="@+id/aghs1"
         app:layout_constraintStart_toStartOf="@+id/aghs1"
-        app:layout_constraintTop_toTopOf="@+id/aghs1"
-        app:srcCompat="@drawable/talents_icon" />
+        app:layout_constraintTop_toTopOf="@+id/lvl1"
+        app:srcCompat="@drawable/aghs_icon" />
 
     <Button
         android:id="@+id/lvl2"
@@ -561,7 +562,7 @@
         android:layout_height="wrap_content"
         android:text="@string/ult_lvl1"
         app:layout_constraintBottom_toBottomOf="@id/spell_btn2"
-        app:layout_constraintEnd_toStartOf="@id/talent1"
+        app:layout_constraintEnd_toStartOf="@id/aghs1"
         app:layout_constraintStart_toEndOf="@id/spell_btn1"
         app:layout_constraintTop_toTopOf="@id/spell_btn2" />
 
@@ -570,27 +571,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@id/lvl2"
-        app:layout_constraintEnd_toStartOf="@id/aghs1"
-        app:layout_constraintStart_toEndOf="@id/lvl2"
-        app:layout_constraintTop_toTopOf="@id/lvl2" />
+        app:layout_constraintEnd_toStartOf="@id/options2"
+        app:layout_constraintStart_toEndOf="@id/aghs2"
+        app:layout_constraintTop_toBottomOf="@id/talent2_pic" />
 
     <RadioButton
         android:id="@+id/aghs2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@id/lvl2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/talent2"
-        app:layout_constraintTop_toTopOf="@id/lvl2" />
+        app:layout_constraintEnd_toStartOf="@id/talent2"
+        app:layout_constraintStart_toEndOf="@id/lvl2"
+        app:layout_constraintTop_toBottomOf="@id/aghs2_pic" />
 
     <ImageView
         android:id="@+id/aghs2_pic"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:contentDescription="@string/misc_pics"
-        app:layout_constraintBottom_toBottomOf="@id/talent2"
-        app:layout_constraintStart_toEndOf="@id/talent2"
-        app:layout_constraintTop_toTopOf="@id/talent2"
+        app:layout_constraintBottom_toTopOf="@id/aghs2"
+        app:layout_constraintStart_toStartOf="@id/aghs2"
+        app:layout_constraintTop_toTopOf="@+id/lvl2"
         app:srcCompat="@drawable/aghs_icon" />
 
     <ImageView
@@ -598,9 +599,9 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:contentDescription="@string/misc_pics"
-        app:layout_constraintBottom_toBottomOf="@id/aghs2"
-        app:layout_constraintStart_toEndOf="@id/aghs2"
-        app:layout_constraintTop_toTopOf="@id/aghs2"
+        app:layout_constraintBottom_toTopOf="@id/talent2"
+        app:layout_constraintStart_toStartOf="@+id/talent2"
+        app:layout_constraintTop_toTopOf="@+id/lvl2"
         app:srcCompat="@drawable/talents_icon" />
 
     <Button
@@ -609,36 +610,36 @@
         android:layout_height="wrap_content"
         android:text="@string/ult_lvl1"
         app:layout_constraintBottom_toBottomOf="@+id/spell_btn3"
-        app:layout_constraintEnd_toStartOf="@id/talent1"
+        app:layout_constraintEnd_toStartOf="@id/aghs1"
         app:layout_constraintStart_toEndOf="@id/spell_btn1"
         app:layout_constraintTop_toTopOf="@id/spell_btn3" />
-
-    <RadioButton
-        android:id="@+id/talent3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/lvl3"
-        app:layout_constraintEnd_toStartOf="@id/aghs1"
-        app:layout_constraintStart_toEndOf="@id/lvl1"
-        app:layout_constraintTop_toTopOf="@id/lvl3" />
 
     <RadioButton
         android:id="@+id/aghs3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@id/lvl3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/talent1"
-        app:layout_constraintTop_toTopOf="@id/lvl3" />
+        app:layout_constraintEnd_toStartOf="@id/talent3"
+        app:layout_constraintStart_toEndOf="@id/lvl1"
+        app:layout_constraintTop_toBottomOf="@id/aghs3_pic" />
+
+    <RadioButton
+        android:id="@+id/talent3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/lvl3"
+        app:layout_constraintEnd_toStartOf="@id/options3"
+        app:layout_constraintStart_toEndOf="@id/aghs3"
+        app:layout_constraintTop_toBottomOf="@id/talent3_pic" />
 
     <ImageView
         android:id="@+id/aghs3_pic"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:contentDescription="@string/misc_pics"
-        app:layout_constraintBottom_toBottomOf="@id/talent3"
-        app:layout_constraintStart_toEndOf="@id/talent3"
-        app:layout_constraintTop_toTopOf="@id/talent3"
+        app:layout_constraintBottom_toTopOf="@id/aghs3"
+        app:layout_constraintStart_toStartOf="@id/aghs3"
+        app:layout_constraintTop_toTopOf="@id/lvl3"
         app:srcCompat="@drawable/aghs_icon" />
 
     <ImageView
@@ -646,9 +647,9 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:contentDescription="@string/misc_pics"
-        app:layout_constraintBottom_toBottomOf="@+id/aghs3"
-        app:layout_constraintStart_toEndOf="@id/aghs3"
-        app:layout_constraintTop_toTopOf="@id/aghs3"
+        app:layout_constraintBottom_toTopOf="@+id/talent3"
+        app:layout_constraintStart_toStartOf="@id/talent3"
+        app:layout_constraintTop_toTopOf="@id/lvl3"
         app:srcCompat="@drawable/talents_icon" />
 
     <Button
@@ -657,36 +658,36 @@
         android:layout_height="wrap_content"
         android:text="@string/ult_lvl1"
         app:layout_constraintBottom_toBottomOf="@+id/spell_btn4"
-        app:layout_constraintEnd_toStartOf="@id/talent1"
+        app:layout_constraintEnd_toStartOf="@id/aghs1"
         app:layout_constraintStart_toEndOf="@id/spell_btn1"
         app:layout_constraintTop_toTopOf="@id/spell_btn4" />
-
-    <RadioButton
-        android:id="@+id/talent4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/lvl4"
-        app:layout_constraintEnd_toStartOf="@id/aghs1"
-        app:layout_constraintStart_toEndOf="@id/lvl1"
-        app:layout_constraintTop_toTopOf="@id/lvl4" />
 
     <RadioButton
         android:id="@+id/aghs4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@id/lvl4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/talent1"
-        app:layout_constraintTop_toTopOf="@id/lvl4" />
+        app:layout_constraintEnd_toStartOf="@id/talent4"
+        app:layout_constraintStart_toEndOf="@id/lvl4"
+        app:layout_constraintTop_toBottomOf="@id/aghs4_pic" />
+
+    <RadioButton
+        android:id="@+id/talent4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/lvl4"
+        app:layout_constraintEnd_toStartOf="@id/options4"
+        app:layout_constraintStart_toEndOf="@id/aghs4"
+        app:layout_constraintTop_toBottomOf="@id/aghs4_pic" />
 
     <ImageView
         android:id="@+id/aghs4_pic"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:contentDescription="@string/misc_pics"
-        app:layout_constraintBottom_toBottomOf="@id/talent4"
-        app:layout_constraintStart_toEndOf="@id/talent4"
-        app:layout_constraintTop_toTopOf="@id/talent4"
+        app:layout_constraintBottom_toTopOf="@id/aghs4"
+        app:layout_constraintStart_toStartOf="@id/aghs4"
+        app:layout_constraintTop_toTopOf="@id/lvl4"
         app:srcCompat="@drawable/aghs_icon" />
 
     <ImageView
@@ -694,9 +695,9 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:contentDescription="@string/misc_pics"
-        app:layout_constraintBottom_toBottomOf="@id/aghs4"
-        app:layout_constraintStart_toEndOf="@id/aghs4"
-        app:layout_constraintTop_toTopOf="@id/aghs4"
+        app:layout_constraintBottom_toTopOf="@id/talent4"
+        app:layout_constraintStart_toStartOf="@id/talent4"
+        app:layout_constraintTop_toTopOf="@id/lvl4"
         app:srcCompat="@drawable/talents_icon" />
 
     <Button
@@ -705,36 +706,36 @@
         android:layout_height="wrap_content"
         android:text="@string/ult_lvl1"
         app:layout_constraintBottom_toBottomOf="@id/spell_btn5"
-        app:layout_constraintEnd_toStartOf="@id/talent1"
+        app:layout_constraintEnd_toStartOf="@id/aghs1"
         app:layout_constraintStart_toEndOf="@id/spell_btn1"
         app:layout_constraintTop_toTopOf="@id/spell_btn5" />
+
+    <RadioButton
+        android:id="@+id/aghs5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/lvl5"
+        app:layout_constraintEnd_toStartOf="@id/talent5"
+        app:layout_constraintStart_toEndOf="@id/lvl5"
+        app:layout_constraintTop_toBottomOf="@id/aghs5_pic" />
 
     <RadioButton
         android:id="@+id/talent5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@id/lvl5"
-        app:layout_constraintEnd_toStartOf="@id/aghs1"
-        app:layout_constraintStart_toEndOf="@id/lvl1"
-        app:layout_constraintTop_toTopOf="@id/lvl5" />
-
-    <RadioButton
-        android:id="@+id/aghs5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/talent5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/talent1"
-        app:layout_constraintTop_toTopOf="@id/talent5" />
+        app:layout_constraintEnd_toStartOf="@id/options5"
+        app:layout_constraintStart_toEndOf="@id/aghs5"
+        app:layout_constraintTop_toBottomOf="@id/talent5_pic" />
 
     <ImageView
         android:id="@+id/aghs5_pic"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:contentDescription="@string/misc_pics"
-        app:layout_constraintBottom_toBottomOf="@id/talent5"
-        app:layout_constraintStart_toEndOf="@id/talent5"
-        app:layout_constraintTop_toTopOf="@id/talent5"
+        app:layout_constraintBottom_toTopOf="@id/aghs5"
+        app:layout_constraintStart_toStartOf="@id/aghs5"
+        app:layout_constraintTop_toTopOf="@id/lvl5"
         app:srcCompat="@drawable/aghs_icon" />
 
     <ImageView
@@ -742,38 +743,60 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:contentDescription="@string/misc_pics"
-        app:layout_constraintBottom_toBottomOf="@id/aghs5"
-        app:layout_constraintStart_toEndOf="@id/aghs5"
-        app:layout_constraintTop_toTopOf="@id/aghs5"
+        app:layout_constraintBottom_toTopOf="@id/talent5"
+        app:layout_constraintStart_toStartOf="@id/talent5"
+        app:layout_constraintTop_toTopOf="@id/lvl5"
         app:srcCompat="@drawable/talents_icon" />
 
-    <RadioButton
-        android:id="@+id/octarine1_button"
+    <Button
+        android:id="@+id/options1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/lvl1"
-        app:layout_constraintEnd_toStartOf="@id/quickening_button"
-        app:layout_constraintStart_toEndOf="@id/talent1"
-        app:layout_constraintTop_toTopOf="@id/lvl1" />
-
-    <RadioButton
-        android:id="@+id/quickening_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/prism_button"
+        android:text="@string/more"
+        app:layout_constraintTop_toTopOf="@id/lvl1"
+        app:layout_constraintBottom_toBottomOf="@id/lvl1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/octarine1_button"
-        app:layout_constraintTop_toTopOf="@+id/lvl1" />
+        app:layout_constraintStart_toEndOf="@id/talent1_pic" />
 
-    <RadioButton
-        android:id="@+id/prism_button"
+    <Button
+        android:id="@+id/options2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/lvl1"
+        android:text="@string/more"
+        app:layout_constraintTop_toTopOf="@id/lvl2"
+        app:layout_constraintBottom_toBottomOf="@id/lvl2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/octarine1_button"
-        app:layout_constraintTop_toBottomOf="@id/quickening_button" />
+        app:layout_constraintStart_toEndOf="@id/talent2_pic" />
 
+    <Button
+        android:id="@+id/options3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/more"
+        app:layout_constraintTop_toTopOf="@id/lvl3"
+        app:layout_constraintBottom_toBottomOf="@id/lvl3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/talent3_pic" />
+
+    <Button
+        android:id="@+id/options4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/more"
+        app:layout_constraintTop_toTopOf="@id/lvl4"
+        app:layout_constraintBottom_toBottomOf="@id/lvl4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/talent4_pic" />
+
+    <Button
+        android:id="@+id/options5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/more"
+        app:layout_constraintTop_toTopOf="@id/lvl5"
+        app:layout_constraintBottom_toBottomOf="@id/lvl5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/talent5_pic" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
