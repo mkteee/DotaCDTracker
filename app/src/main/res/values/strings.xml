@@ -33,4 +33,7 @@
     <string name="ult_lvl1">lvl1</string>
     <string name="misc_pics">misc pics</string>
     <string name="more">More</string>
+    <string name="okay">Okay</string>
+    <string name="retroactive">Retroactive</string>
+    <string name="reset_cd">Reset CD</string>
 </resources>

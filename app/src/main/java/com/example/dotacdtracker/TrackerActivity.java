@@ -45,4 +45,20 @@ public class TrackerActivity extends AppCompatActivity {
 
     }
 
+    public void onOkClicked(View view){
+
+    }
+
+    public void onRetroClicked(View view){
+
+    }
+
+    public void onResetClicked(View view){
+
+    }
+
+    public void onLvlClicked(View view){
+
+    }
+
 }

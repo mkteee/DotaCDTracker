@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RadioButton
+        android:id="@+id/quickening"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/octarine"
+        app:layout_constraintBottom_toTopOf="@id/prism" />
+
+    <RadioButton
+        android:id="@+id/prism"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/octarine"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioButton
+        android:id="@+id/octarine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/prism"
+        app:layout_constraintEnd_toStartOf="@+id/quickening"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/quickening" />
+
+    <Button
+        android:id="@+id/retro_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/retroactive"
+        android:layout_marginTop="40dp"
+        android:onClick="onRetroClicked"
+        app:layout_constraintEnd_toStartOf="@id/ok_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aghs" />
+
+    <Button
+        android:id="@+id/ok_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/okay"
+        android:onClick="onOkClicked"
+        app:layout_constraintBottom_toBottomOf="@+id/retro_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/retro_button"
+        app:layout_constraintTop_toTopOf="@+id/retro_button" />
+
+    <Button
+        android:id="@+id/lvl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ult_lvl1"
+        android:onClick="onLvlClicked"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/quickening"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_red_light"
+        android:text="@string/reset_cd"
+        android:onClick="onResetClicked"
+        app:layout_constraintBottom_toBottomOf="@+id/lvl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/quickening"
+        app:layout_constraintTop_toTopOf="@+id/lvl" />
+
+    <RadioButton
+        android:id="@+id/aghs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="@+id/octarine"
+        app:layout_constraintTop_toBottomOf="@+id/prism" />
+
+    <RadioButton
+        android:id="@+id/talent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/aghs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/aghs"
+        app:layout_constraintTop_toTopOf="@+id/aghs" />
+
+    <ImageView
+        android:id="@+id/octarine_pic"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/octarine"
+        app:layout_constraintStart_toEndOf="@+id/octarine"
+        app:layout_constraintTop_toTopOf="@+id/octarine"
+        app:srcCompat="@drawable/octarine_icon"
+        android:contentDescription="@string/misc_pics" />
+
+    <ImageView
+        android:id="@+id/aghs_pic"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/aghs"
+        app:layout_constraintStart_toEndOf="@+id/aghs"
+        app:layout_constraintTop_toTopOf="@+id/aghs"
+        app:srcCompat="@drawable/aghs_icon"
+        android:contentDescription="@string/misc_pics"/>
+
+    <ImageView
+        android:id="@+id/talent_pic"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/talent"
+        app:layout_constraintStart_toEndOf="@+id/talent"
+        app:layout_constraintTop_toTopOf="@+id/talent"
+        app:srcCompat="@drawable/talents_icon"
+        android:contentDescription="@string/misc_pics"/>
+
+    <ImageView
+        android:id="@+id/quickening_pic"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/prism"
+        app:layout_constraintStart_toEndOf="@+id/quickening"
+        app:layout_constraintTop_toTopOf="@+id/quickening"
+        app:srcCompat="@drawable/quickening_icon"
+        android:contentDescription="@string/misc_pics"/>
+
+    <ImageView
+        android:id="@+id/prism_pic"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/prism"
+        app:layout_constraintStart_toEndOf="@+id/prism"
+        app:layout_constraintTop_toBottomOf="@+id/quickening"
+        app:srcCompat="@drawable/spell_icon"
+        android:contentDescription="@string/misc_pics"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
