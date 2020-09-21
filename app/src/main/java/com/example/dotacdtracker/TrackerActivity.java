@@ -1,11 +1,16 @@
 package com.example.dotacdtracker;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,9 +43,8 @@ public class TrackerActivity extends AppCompatActivity {
         for(Hero hero : heroes) {
             spells.add(new Spell(hero.getSpell(), hero.getCooldown(), hero.getLvl_reduction(),
                     hero.getTalent_reduction(), hero.getAghs_reduction(), hero.getIcon_name()));
-
-
         }
+        initializeLayout();
     }
 
     public void onSpellClicked(View view){
@@ -111,8 +115,8 @@ public class TrackerActivity extends AppCompatActivity {
         boolean hasQuickening = spell.hasQuickening();
         boolean hasPrism = spell.hasPrism();
 
-        if(hero.hasAghs()) aghs_red = spell.getAghs_reduction();
-        if(hero.hasTalent()) talent_red = spell.getTalent_reduction();
+        if(hero.isAghs_Active()) aghs_red = spell.getAghs_reduction();
+        if(hero.isTalent_Active()) talent_red = spell.getTalent_reduction();
 
         float octarine = 0;
         float neutral = 0;
@@ -123,11 +127,12 @@ public class TrackerActivity extends AppCompatActivity {
 
         long calc_cooldown = 1000 * (long) cooldownCalc(cooldown, talent_red, octarine, neutral, aghs_red);
 
-        cdTimer[spell_number] = new CountDownTimer(calc_cooldown, 1000) {
+        cdTimer[spell_number] = new CountDownTimer(calc_cooldown, 995) {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onTick(long millisUntilFinished) {
                 hasStarted[spell_number] = true;
-                field.setText(""+(double)(millisUntilFinished/1000));
+                field.setText(""+(int)(millisUntilFinished/1000));
             }
             @Override
             public void onFinish() {
@@ -151,5 +156,70 @@ public class TrackerActivity extends AppCompatActivity {
 
         return (cooldown * (1- talent_percent) * (1-octarine) * (1-neutral)
                 - talent_flat - aghs);
+    }
+
+    public void initializeLayout(){
+        int curr_hero = 0;
+
+        ImageView[] spell_img1 = {findViewById(R.id.first_spell), findViewById(R.id.second_spell),
+        findViewById(R.id.third_spell), findViewById(R.id.fourth_spell), findViewById(R.id.fifth_spell)};
+        ImageView[] spell_img2 = {findViewById(R.id.spell_btn1), findViewById(R.id.spell_btn2),
+        findViewById(R.id.spell_btn3), findViewById(R.id.spell_btn4), findViewById(R.id.spell_btn5)};
+
+        ImageView[] indicators = {findViewById(R.id.first_indicator), findViewById(R.id.second_indicator),
+        findViewById(R.id.third_indicator), findViewById(R.id.fourth_indicator), findViewById(R.id.fifth_indicator)};
+        TextView [] spell_cd = {findViewById(R.id.first_spell_cd), findViewById(R.id.second_spell_cd),
+        findViewById(R.id.third_spell_cd), findViewById(R.id.fourth_spell_cd), findViewById(R.id.fifth_spell_cd)};
+
+        ImageView[] aghs_pic = {findViewById(R.id.aghs1_pic), findViewById(R.id.aghs2_pic),
+        findViewById(R.id.aghs3_pic), findViewById(R.id.aghs4_pic), findViewById(R.id.aghs5_pic)};
+        ImageView[] talent_pic = {findViewById(R.id.talent1_pic), findViewById(R.id.talent2_pic),
+        findViewById(R.id.talent3_pic), findViewById(R.id.talent4_pic), findViewById(R.id.talent5_pic)};
+
+        RadioButton [] aghs_btn = {findViewById(R.id.aghs1), findViewById(R.id.aghs2), findViewById(R.id.aghs3),
+        findViewById(R.id.aghs4), findViewById(R.id.aghs5)};
+        RadioButton [] talent_btn = {findViewById(R.id.talent1), findViewById(R.id.talent2),
+        findViewById(R.id.talent3), findViewById(R.id.talent4), findViewById(R.id.talent5)};
+        Button [] lvl_btn = {findViewById(R.id.lvl1), findViewById(R.id.lvl2), findViewById(R.id.lvl3),
+        findViewById(R.id.lvl4), findViewById(R.id.lvl5)};
+        Button [] more_btn = {findViewById(R.id.options1), findViewById(R.id.options2),
+        findViewById(R.id.options3), findViewById(R.id.options4), findViewById(R.id.options5)};
+
+        Resources res = getResources();
+
+        //view.setColorFilter(Color.argb(150,200,200,200));
+        for(Hero hero : heroes){
+            String mDrawableName = heroes.get(curr_hero).getIcon_name();
+            int resID = res.getIdentifier(mDrawableName , "drawable", getPackageName());
+            spell_img1[curr_hero].setImageResource(resID);
+            spell_img2[curr_hero].setImageResource(resID);
+
+            if(!hero.hasTalent()) {
+                talent_pic[curr_hero].setColorFilter(Color.argb(100,250,100,100));
+                talent_btn[curr_hero].setEnabled(false);
+            }
+            if(!hero.hasAghs()) {
+                aghs_pic[curr_hero].setColorFilter(Color.argb(100,250,100,100));
+                aghs_btn[curr_hero].setEnabled(false);
+            }
+            curr_hero++;
+        }
+        while(curr_hero<5){
+            spell_img1[curr_hero].setEnabled(false);
+            spell_img1[curr_hero].setColorFilter(Color.argb(250,200,200,200));
+            spell_img2[curr_hero].setImageResource(0);
+            spell_img2[curr_hero].setEnabled(false);
+            indicators[curr_hero].setImageResource(0);
+            spell_cd[curr_hero].setText("");
+            aghs_pic[curr_hero].setImageResource(0);
+            aghs_btn[curr_hero].setVisibility(View.GONE);
+            talent_pic[curr_hero].setImageResource(0);
+            talent_btn[curr_hero].setVisibility(View.GONE);
+            lvl_btn[curr_hero].setEnabled(false);
+            lvl_btn[curr_hero].setVisibility(View.GONE);
+            more_btn[curr_hero].setEnabled(false);
+            more_btn[curr_hero].setVisibility(View.GONE);
+            curr_hero++;
+        }
     }
 }
