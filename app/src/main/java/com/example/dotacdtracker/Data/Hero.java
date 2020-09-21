@@ -8,6 +8,8 @@ public class Hero {
     boolean has_cd_talent;
     boolean has_aghs_reduction;
     boolean has_lvl_reduction;
+    boolean talent_Active;
+    boolean aghs_Active;
     float talent_reduction;
     float aghs_reduction;
     float [] lvl_reduction;
@@ -42,13 +44,13 @@ public class Hero {
     public float getCooldown(){
         return cooldown;
     }
-    public boolean getTalent(){
+    public boolean hasTalent(){
         return has_cd_talent;
     }
-    public boolean getLvl(){
+    public boolean hasLvl(){
         return has_lvl_reduction;
     }
-    public boolean getAghs(){
+    public boolean hasAghs(){
         return has_aghs_reduction;
     }
     public float getTalent_reduction(){
@@ -68,5 +70,26 @@ public class Hero {
     }
     public String getId(){
         return id;
+    }
+    public boolean isAghs_Active() {
+        return aghs_Active;
+    }
+    public boolean isTalent_Active() {
+        return talent_Active;
+    }
+    public void setHas_cd_talent(boolean has_cd_talent) {
+        this.has_cd_talent = has_cd_talent;
+    }
+    public void setHas_lvl_reduction(boolean has_lvl_reduction) {
+        this.has_lvl_reduction = has_lvl_reduction;
+    }
+    public void setHas_aghs_reduction(boolean has_aghs_reduction) {
+        this.has_aghs_reduction = has_aghs_reduction;
+    }
+    public void setAghs_Active(boolean aghs_Active) {
+        this.aghs_Active = aghs_Active;
+    }
+    public void setTalent_Active(boolean talent_Active) {
+        this.talent_Active = talent_Active;
     }
 }
