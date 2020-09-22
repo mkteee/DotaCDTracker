@@ -18,6 +18,8 @@
     <string name="spell_ready">Spell ready</string>
     <string name="spell_indicators">spell_indicators</string>
     <string name="roshan">roshan</string>
+    <string name="roshan_up">Roshan is up</string>
+    <string name="aegis_down">Aegis is down</string>
     <string name="roshan_timer">Roshan timer</string>
     <string name="roshan_ind">roshan_ind</string>
     <string name="aegis">aegis</string>

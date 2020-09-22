@@ -21,14 +21,15 @@ import com.example.dotacdtracker.Data.HeroMap;
 import com.example.dotacdtracker.Data.Spell;
 
 import java.util.ArrayList;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public class TrackerActivity extends AppCompatActivity {
 
     ArrayList<Hero> heroes = new ArrayList<>();
     ArrayList<Spell> spells = new ArrayList<>();
     CountDownTimer[] cdTimer = new CountDownTimer[8];
-    boolean[] hasStarted = new boolean[7];  //1-5 spells -- 6 for aegis -- 7 for neutral items
-    int roshanState = 0;                    //separated because spawn-range
+    boolean[] hasStarted = new boolean[8];  //1-5 spells -- 6 roshan -- 7 aegis -- 8 neutral
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,39 +122,79 @@ public class TrackerActivity extends AppCompatActivity {
         final ImageView indicator = findViewById(R.id.roshan_indicator);
         onAegisClicked(findViewById(R.id.aegis));   //automatically assume that aegis is picked up
 
-        if(roshanState > 1){
-            cdTimer[6].cancel();
-            roshanState = 0;
-        }
-        if(roshanState == 0) {
-            roshanState = 1;
-            indicator.setImageResource(R.drawable.ic_spell_not_ready);
-            cdTimer[6] = new CountDownTimer(480000, 995) {
-                @SuppressLint("SetTextI18n")
-                @Override
-                public void onTick(long millisUntilFinished) {
-                    roshanState = 1;
-                    field.setText("" + (int) (millisUntilFinished / 1000));
-                }
-                @Override
-                public void onFinish() {
-                    field.setText(getString(R.string.spell_ready));
-                    roshanState = 2;
-                    indicator.setImageResource(R.drawable.ic_spell_maybe);
+        if(hasStarted[5]) cdTimer[5].cancel();
 
-                    //start other timer
-                    startRoshanSpawnRangeTimer();
+        indicator.setImageResource(R.drawable.ic_spell_not_ready);
+        hasStarted[5] = true;
+        cdTimer[5] = new CountDownTimer(480000, 995) {
+            @SuppressLint({"SetTextI18n", "DefaultLocale"})
+            @Override
+            public void onTick(long millisUntilFinished) {
+                field.setText("Not up "+String.format("%d:%d ",
+                        TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
+                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
+                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+            }
+            @Override
+            public void onFinish() {
+                indicator.setImageResource(R.drawable.ic_spell_maybe);
+
+                //start other timer
+                startRoshanSpawnRangeTimer();
                 }
-            }.start();
-        }
+        }.start();
+
+        //assume aegis timer starts as well
+        onAegisClicked(findViewById(R.id.aegis));
+
     }
 
     public void startRoshanSpawnRangeTimer(){
+        final TextView field = findViewById(R.id.roshan_cd);
+        final ImageView indicator = findViewById(R.id.roshan_indicator);
+        cdTimer[5] = new CountDownTimer(180000, 995) {
+            @SuppressLint({"SetTextI18n", "DefaultLocale"})
+            @Override
+            public void onTick(long millisUntilFinished) {
+                field.setText("Maybe up "+String.format("%d:%d ",
+                        TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
+                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
+                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+            }
+            @Override
+            public void onFinish() {
+                field.setText(getString(R.string.roshan_up));
+                indicator.setImageResource(R.drawable.ic_spell_maybe);
+                hasStarted[5] = false;
+            }
+        }.start();
         
     }
 
     public void onAegisClicked(View view){
+        final TextView field = findViewById(R.id.aegis_cd);
+        final ImageView indicator = findViewById(R.id.aegis_indicator);
 
+        if(hasStarted[6]) cdTimer[6].cancel();
+
+        indicator.setImageResource(R.drawable.ic_spell_not_ready);
+        hasStarted[6] = true;
+        cdTimer[6] = new CountDownTimer(30000, 995) {
+            @SuppressLint({"SetTextI18n", "DefaultLocale"})
+            @Override
+            public void onTick(long millisUntilFinished) {
+                field.setText(""+String.format("%d:%d ",
+                        TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
+                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
+                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+            }
+            @Override
+            public void onFinish() {
+                field.setText(getString(R.string.aegis_down));
+                indicator.setImageResource(R.drawable.ic_spell_ready);
+                hasStarted[6] = false;
+            }
+        }.start();
     }
 
     public void onOkClicked(View view){
@@ -201,11 +242,11 @@ public class TrackerActivity extends AppCompatActivity {
          * Color the indicator red and start the CountDownTimer to start the cooldown
          */
         indicator.setImageResource(R.drawable.ic_spell_not_ready);
+        hasStarted[spell_number] = true;
         cdTimer[spell_number] = new CountDownTimer(calc_cooldown, 995) {
             @SuppressLint("SetTextI18n")
             @Override
             public void onTick(long millisUntilFinished) {
-                hasStarted[spell_number] = true;
                 field.setText(""+(int)(millisUntilFinished/1000));
             }
             @Override
@@ -267,6 +308,9 @@ public class TrackerActivity extends AppCompatActivity {
             spell_img1[curr_hero].setImageResource(resID);
             spell_img2[curr_hero].setImageResource(resID);
 
+            if(!hero.hasLvl()){
+                lvl_btn[curr_hero].setEnabled(false);
+            }
             if(!hero.hasTalent()) {
                 talent_pic[curr_hero].setColorFilter(Color.argb(100,250,100,100));
                 talent_btn[curr_hero].setEnabled(false);
