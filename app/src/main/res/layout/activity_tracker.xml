@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/tracker_layout"
+    android:keepScreenOn="true"
     tools:context=".TrackerActivity">
 
 
@@ -428,7 +429,7 @@
         app:srcCompat="@drawable/black_hole_icon"
         app:layout_constraintTop_toBottomOf="@id/seperator_four"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/spell_btn2"
+        app:layout_constraintBottom_toTopOf="@id/spell_seperator1"
         android:contentDescription="@string/spell_icons" />
 
     <ImageView
@@ -438,9 +439,9 @@
         android:onClick="onSpellClicked"
         android:layout_marginStart="8dp"
         app:srcCompat="@drawable/black_hole_icon"
-        app:layout_constraintTop_toBottomOf="@id/spell_btn1"
+        app:layout_constraintTop_toBottomOf="@id/spell_seperator1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/spell_btn3"
+        app:layout_constraintBottom_toTopOf="@id/spell_seperator2"
         android:contentDescription="@string/spell_icons"/>
     <ImageView
         android:id="@+id/spell_btn3"
@@ -449,9 +450,9 @@
         android:onClick="onSpellClicked"
         android:layout_marginStart="8dp"
         app:srcCompat="@drawable/black_hole_icon"
-        app:layout_constraintTop_toBottomOf="@id/spell_btn2"
+        app:layout_constraintTop_toBottomOf="@id/spell_seperator2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/spell_btn4"
+        app:layout_constraintBottom_toTopOf="@id/spell_seperator3"
         android:contentDescription="@string/spell_icons"/>
     <ImageView
         android:id="@+id/spell_btn4"
@@ -460,9 +461,9 @@
         android:onClick="onSpellClicked"
         android:layout_marginStart="8dp"
         app:srcCompat="@drawable/black_hole_icon"
-        app:layout_constraintTop_toBottomOf="@id/spell_btn3"
+        app:layout_constraintTop_toBottomOf="@id/spell_seperator3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/spell_btn5"
+        app:layout_constraintBottom_toTopOf="@id/spell_seperator4"
         android:contentDescription="@string/spell_icons"/>
     <ImageView
         android:id="@+id/spell_btn5"
@@ -471,7 +472,7 @@
         android:onClick="onSpellClicked"
         android:layout_marginStart="8dp"
         app:srcCompat="@drawable/black_hole_icon"
-        app:layout_constraintTop_toBottomOf="@id/spell_btn4"
+        app:layout_constraintTop_toBottomOf="@id/spell_seperator4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:contentDescription="@string/spell_icons"/>
@@ -481,32 +482,32 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@android:color/black"
-        app:layout_constraintBottom_toTopOf="@id/talent2_pic"
-        app:layout_constraintTop_toBottomOf="@id/aghs1" />
+        app:layout_constraintBottom_toTopOf="@+id/spell_btn2"
+        app:layout_constraintTop_toBottomOf="@+id/spell_btn1" />
 
     <View
         android:id="@+id/spell_seperator2"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@android:color/black"
-        app:layout_constraintBottom_toTopOf="@+id/talent3_pic"
-        app:layout_constraintTop_toBottomOf="@+id/aghs2" />
+        app:layout_constraintBottom_toTopOf="@+id/spell_btn3"
+        app:layout_constraintTop_toBottomOf="@+id/spell_btn2" />
 
     <View
         android:id="@+id/spell_seperator3"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@android:color/black"
-        app:layout_constraintBottom_toTopOf="@+id/talent4_pic"
-        app:layout_constraintTop_toBottomOf="@+id/aghs3" />
+        app:layout_constraintBottom_toTopOf="@+id/spell_btn4"
+        app:layout_constraintTop_toBottomOf="@+id/spell_btn3" />
 
     <View
         android:id="@+id/spell_seperator4"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@android:color/black"
-        app:layout_constraintBottom_toTopOf="@+id/talent5_pic"
-        app:layout_constraintTop_toBottomOf="@+id/aghs4" />
+        app:layout_constraintBottom_toTopOf="@+id/spell_btn4"
+        app:layout_constraintTop_toBottomOf="@+id/spell_btn5" />
 
     <Button
         android:id="@+id/lvl1"

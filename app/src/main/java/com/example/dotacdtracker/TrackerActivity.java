@@ -26,8 +26,9 @@ public class TrackerActivity extends AppCompatActivity {
 
     ArrayList<Hero> heroes = new ArrayList<>();
     ArrayList<Spell> spells = new ArrayList<>();
-    CountDownTimer[] cdTimer = new CountDownTimer[5];
-    boolean[] hasStarted = new boolean[5];
+    CountDownTimer[] cdTimer = new CountDownTimer[8];
+    boolean[] hasStarted = new boolean[7];  //1-5 spells -- 6 for aegis -- 7 for neutral items
+    int roshanState = 0;                    //separated because spawn-range
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,7 @@ public class TrackerActivity extends AppCompatActivity {
 
     public void onSpellClicked(View view){
         TextView txt;
+        ImageView indicator;
 
         switch(view.getId()){
             case R.id.first_spell:
@@ -58,20 +60,49 @@ public class TrackerActivity extends AppCompatActivity {
                     hasStarted[0] = false;
                 }
                 txt = findViewById(R.id.first_spell_cd);
-                startCountDown(txt, 0);
+                indicator = findViewById(R.id.first_indicator);
+                startCountDown(txt, indicator, 0);
                 break;
             case R.id.second_spell:
             case R.id.spell_btn2:
-
+                if(hasStarted[1]){
+                    cdTimer[1].cancel();
+                    hasStarted[1] = false;
+                }
+                txt = findViewById(R.id.second_spell_cd);
+                indicator = findViewById(R.id.second_indicator);
+                startCountDown(txt, indicator, 1);
+                break;
             case R.id.third_spell:
             case R.id.spell_btn3:
-
+                if(hasStarted[2]){
+                    cdTimer[2].cancel();
+                    hasStarted[2] = false;
+                }
+                txt = findViewById(R.id.third_spell_cd);
+                indicator = findViewById(R.id.third_indicator);
+                startCountDown(txt, indicator, 2);
+                break;
             case R.id.fourth_spell:
             case R.id.spell_btn4:
-
+                if(hasStarted[3]){
+                    cdTimer[3].cancel();
+                    hasStarted[3] = false;
+                }
+                txt = findViewById(R.id.fourth_spell_cd);
+                indicator = findViewById(R.id.fourth_indicator);
+                startCountDown(txt, indicator,3);
+                break;
             case R.id.fifth_spell:
             case R.id.spell_btn5:
-
+                if(hasStarted[4]){
+                    cdTimer[4].cancel();
+                    hasStarted[4] = false;
+                }
+                txt = findViewById(R.id.fifth_spell_cd);
+                indicator = findViewById(R.id.fifth_indicator);
+                startCountDown(txt, indicator,4);
+                break;
         }
     }
 
@@ -79,8 +110,46 @@ public class TrackerActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Roshan timer, which spawns between 8-11 Minutes. Timer will run from 8 to 0 and turn the
+     * indicator yellow, which means a spawn is possible. Then it will run a timer from 3 to 0 and
+     * turn green afterwards.
+     * @param view image of roshan
+     */
     public void onRoshanClicked(View view){
+        final TextView field = findViewById(R.id.roshan_cd);
+        final ImageView indicator = findViewById(R.id.roshan_indicator);
+        onAegisClicked(findViewById(R.id.aegis));   //automatically assume that aegis is picked up
 
+        if(roshanState > 1){
+            cdTimer[6].cancel();
+            roshanState = 0;
+        }
+        if(roshanState == 0) {
+            roshanState = 1;
+            indicator.setImageResource(R.drawable.ic_spell_not_ready);
+            cdTimer[6] = new CountDownTimer(480000, 995) {
+                @SuppressLint("SetTextI18n")
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    roshanState = 1;
+                    field.setText("" + (int) (millisUntilFinished / 1000));
+                }
+                @Override
+                public void onFinish() {
+                    field.setText(getString(R.string.spell_ready));
+                    roshanState = 2;
+                    indicator.setImageResource(R.drawable.ic_spell_maybe);
+
+                    //start other timer
+                    startRoshanSpawnRangeTimer();
+                }
+            }.start();
+        }
+    }
+
+    public void startRoshanSpawnRangeTimer(){
+        
     }
 
     public void onAegisClicked(View view){
@@ -103,7 +172,7 @@ public class TrackerActivity extends AppCompatActivity {
 
     }
 
-    public void startCountDown(final TextView field, final int spell_number){
+    public void startCountDown(final TextView field, final ImageView indicator, final int spell_number){
         final Spell spell = spells.get(spell_number);
         final Hero hero = heroes.get(spell_number);
 
@@ -125,8 +194,13 @@ public class TrackerActivity extends AppCompatActivity {
         if(hasOctarine) octarine = 0.25f;       //25% for octarine
         cooldown = cooldown - lvl_red;          //subtract lvl based cd
 
+        //calculate the actual cooldown after boni and reductions
         long calc_cooldown = 1000 * (long) cooldownCalc(cooldown, talent_red, octarine, neutral, aghs_red);
 
+        /*
+         * Color the indicator red and start the CountDownTimer to start the cooldown
+         */
+        indicator.setImageResource(R.drawable.ic_spell_not_ready);
         cdTimer[spell_number] = new CountDownTimer(calc_cooldown, 995) {
             @SuppressLint("SetTextI18n")
             @Override
@@ -138,9 +212,9 @@ public class TrackerActivity extends AppCompatActivity {
             public void onFinish() {
                 field.setText(getString(R.string.spell_ready));
                 hasStarted[spell_number] = false;
+                indicator.setImageResource(R.drawable.ic_spell_ready);
             }
         }.start();
-
     }
 
     public float cooldownCalc(float cooldown, float talent, float octarine, float neutral,
@@ -153,9 +227,8 @@ public class TrackerActivity extends AppCompatActivity {
         }else{
             talent_flat = talent;
         }
-
-        return (cooldown * (1- talent_percent) * (1-octarine) * (1-neutral)
-                - talent_flat - aghs);
+        cooldown = cooldown - talent_flat - aghs;
+        return (cooldown * (1- talent_percent) * (1-octarine) * (1-neutral));
     }
 
     public void initializeLayout(){

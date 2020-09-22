@@ -28,7 +28,7 @@ public class HeroMap {
 
     private static final Hero balanar = new Hero("Night Stalker", "Dark Ascension", 140,
             true, false, true, 60, 0,
-            new float[]{10, 10}, "dark_ascension_item", "night_stalker_icon", "balanar");
+            new float[]{10, 10}, "dark_ascension_icon", "night_stalker_icon", "balanar");
 
     private static final Hero omni = new Hero("Omniknight", "Guardian Angel", 160,
             true, false, true, 60, 0,
