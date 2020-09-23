@@ -21,7 +21,6 @@ import com.example.dotacdtracker.Data.HeroMap;
 import com.example.dotacdtracker.Data.Spell;
 
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class TrackerActivity extends AppCompatActivity {
@@ -107,8 +106,72 @@ public class TrackerActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Neutral item timer. Destroys current timer and sets a new one after next tier is reached.
+     * Timings are:
+     * 7min-17min  : tier1 (420.000milli)
+     * 17min-27min : tier2 (600.000milli)
+     * 27min-37min : tier3 (600.000milli)
+     * 37min-60min : tier4 (600.000milli)
+     * 60min+      : tier5 (1.380.000milli)
+     * @param view one of three neutral buttons
+     */
     public void onNeutralClicked(View view){
+        if(hasStarted[7]){
+            cdTimer[7].cancel();
+            ((ImageView) findViewById(R.id.tier1_indicator)).setImageResource(R.drawable.ic_spell_not_ready);
+            ((ImageView) findViewById(R.id.tier2_indicator)).setImageResource(R.drawable.ic_spell_not_ready);
+            ((ImageView) findViewById(R.id.tier3_indicator)).setImageResource(R.drawable.ic_spell_not_ready);
+            ((ImageView) findViewById(R.id.tier4_indicator)).setImageResource(R.drawable.ic_spell_not_ready);
+            ((ImageView) findViewById(R.id.tier5_indicator)).setImageResource(R.drawable.ic_spell_not_ready);
+        }
+        switch (view.getId()){
+            case R.id.neutral_button1:
+                startNeutralTimer(460000, (ImageView) findViewById(R.id.tier1_indicator));
+                break;
+            case R.id.neutral_button2:
+                startNeutralTimer(440000, (ImageView) findViewById(R.id.tier1_indicator));
+                break;
+            case R.id.neutral_button3:
+                break;
+        }
+    }
 
+    public void startNeutralTimer(int millis, final ImageView indicator){
+        final TextView field = findViewById(R.id.neutral_timer);
+
+        hasStarted[7] = true;
+
+        cdTimer[7] = new CountDownTimer(millis, 995) {
+            @SuppressLint({"SetTextI18n", "DefaultLocale"})
+            @Override
+            public void onTick(long millisUntilFinished) {
+                field.setText("Next item in "+String.format("%d:%02d ",
+                        TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
+                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
+                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+            }
+            @Override
+            public void onFinish() {
+                indicator.setImageResource(R.drawable.ic_spell_ready);
+                switch (indicator.getId()){
+                    case R.id.tier1_indicator:
+                        startNeutralTimer(600000, (ImageView) findViewById(R.id.tier2_indicator));
+                        break;
+                    case R.id.tier2_indicator:
+                        startNeutralTimer(600000, (ImageView) findViewById(R.id.tier3_indicator));
+                        break;
+                    case R.id.tier3_indicator:
+                        startNeutralTimer(600000, (ImageView) findViewById(R.id.tier4_indicator));
+                        break;
+                    case R.id.tier4_indicator:
+                        startNeutralTimer(1380000, (ImageView) findViewById(R.id.tier5_indicator));
+                        break;
+                    case R.id.tier5_indicator:
+                        field.setText(R.string.dropped);
+                }
+            }
+        }.start();
     }
 
     /**
@@ -130,7 +193,7 @@ public class TrackerActivity extends AppCompatActivity {
             @SuppressLint({"SetTextI18n", "DefaultLocale"})
             @Override
             public void onTick(long millisUntilFinished) {
-                field.setText("Not up "+String.format("%d:%d ",
+                field.setText("Not up "+String.format("%d:%02d ",
                         TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
                         TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
                                 TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
@@ -156,7 +219,7 @@ public class TrackerActivity extends AppCompatActivity {
             @SuppressLint({"SetTextI18n", "DefaultLocale"})
             @Override
             public void onTick(long millisUntilFinished) {
-                field.setText("Maybe up "+String.format("%d:%d ",
+                field.setText("Maybe up "+String.format("%d:%02d ",
                         TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
                         TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
                                 TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
@@ -179,11 +242,11 @@ public class TrackerActivity extends AppCompatActivity {
 
         indicator.setImageResource(R.drawable.ic_spell_not_ready);
         hasStarted[6] = true;
-        cdTimer[6] = new CountDownTimer(30000, 995) {
+        cdTimer[6] = new CountDownTimer(300000, 995) {
             @SuppressLint({"SetTextI18n", "DefaultLocale"})
             @Override
             public void onTick(long millisUntilFinished) {
-                field.setText(""+String.format("%d:%d ",
+                field.setText(""+String.format("%d:%02d ",
                         TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
                         TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
                                 TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));

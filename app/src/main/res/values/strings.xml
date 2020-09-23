@@ -39,4 +39,5 @@
     <string name="retroactive">Retroactive</string>
     <string name="reset_cd">Reset CD</string>
     <string name="empty" />
+    <string name="dropped">All dropped</string>
 </resources>
