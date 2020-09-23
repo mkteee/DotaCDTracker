@@ -519,7 +519,7 @@
         app:layout_constraintStart_toEndOf="@+id/spell_btn1"
         app:layout_constraintTop_toTopOf="@+id/spell_btn1" />
 
-    <RadioButton
+    <CheckBox
         android:id="@+id/talent1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -528,7 +528,7 @@
         app:layout_constraintStart_toEndOf="@id/aghs1"
         app:layout_constraintTop_toBottomOf="@id/talent1_pic" />
 
-    <RadioButton
+    <CheckBox
         android:id="@+id/aghs1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -567,7 +567,7 @@
         app:layout_constraintStart_toEndOf="@id/spell_btn1"
         app:layout_constraintTop_toTopOf="@id/spell_btn2" />
 
-    <RadioButton
+    <CheckBox
         android:id="@+id/talent2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -576,7 +576,7 @@
         app:layout_constraintStart_toEndOf="@id/aghs2"
         app:layout_constraintTop_toBottomOf="@id/talent2_pic" />
 
-    <RadioButton
+    <CheckBox
         android:id="@+id/aghs2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -615,7 +615,7 @@
         app:layout_constraintStart_toEndOf="@id/spell_btn1"
         app:layout_constraintTop_toTopOf="@id/spell_btn3" />
 
-    <RadioButton
+    <CheckBox
         android:id="@+id/aghs3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -624,7 +624,7 @@
         app:layout_constraintStart_toEndOf="@id/lvl1"
         app:layout_constraintTop_toBottomOf="@id/aghs3_pic" />
 
-    <RadioButton
+    <CheckBox
         android:id="@+id/talent3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -663,7 +663,7 @@
         app:layout_constraintStart_toEndOf="@id/spell_btn1"
         app:layout_constraintTop_toTopOf="@id/spell_btn4" />
 
-    <RadioButton
+    <CheckBox
         android:id="@+id/aghs4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -672,7 +672,7 @@
         app:layout_constraintStart_toEndOf="@id/lvl4"
         app:layout_constraintTop_toBottomOf="@id/aghs4_pic" />
 
-    <RadioButton
+    <CheckBox
         android:id="@+id/talent4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -711,7 +711,7 @@
         app:layout_constraintStart_toEndOf="@id/spell_btn1"
         app:layout_constraintTop_toTopOf="@id/spell_btn5" />
 
-    <RadioButton
+    <CheckBox
         android:id="@+id/aghs5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -720,7 +720,7 @@
         app:layout_constraintStart_toEndOf="@id/lvl5"
         app:layout_constraintTop_toBottomOf="@id/aghs5_pic" />
 
-    <RadioButton
+    <CheckBox
         android:id="@+id/talent5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -753,6 +753,7 @@
         android:id="@+id/options1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onMoreClicked"
         android:text="@string/more"
         app:layout_constraintTop_toTopOf="@id/lvl1"
         app:layout_constraintBottom_toBottomOf="@id/lvl1"
@@ -763,6 +764,7 @@
         android:id="@+id/options2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onMoreClicked"
         android:text="@string/more"
         app:layout_constraintTop_toTopOf="@id/lvl2"
         app:layout_constraintBottom_toBottomOf="@id/lvl2"
@@ -773,6 +775,7 @@
         android:id="@+id/options3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onMoreClicked"
         android:text="@string/more"
         app:layout_constraintTop_toTopOf="@id/lvl3"
         app:layout_constraintBottom_toBottomOf="@id/lvl3"
@@ -783,6 +786,7 @@
         android:id="@+id/options4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onMoreClicked"
         android:text="@string/more"
         app:layout_constraintTop_toTopOf="@id/lvl4"
         app:layout_constraintBottom_toBottomOf="@id/lvl4"
@@ -793,6 +797,7 @@
         android:id="@+id/options5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onMoreClicked"
         android:text="@string/more"
         app:layout_constraintTop_toTopOf="@id/lvl5"
         app:layout_constraintBottom_toBottomOf="@id/lvl5"

@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
 
-    <RadioButton
+    <CheckBox
         android:id="@+id/quickening"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,7 +15,7 @@
         app:layout_constraintStart_toEndOf="@id/octarine"
         app:layout_constraintBottom_toTopOf="@id/prism" />
 
-    <RadioButton
+    <CheckBox
         android:id="@+id/prism"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
         app:layout_constraintStart_toEndOf="@id/octarine"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <RadioButton
+    <CheckBox
         android:id="@+id/octarine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
         app:layout_constraintStart_toEndOf="@+id/quickening"
         app:layout_constraintTop_toTopOf="@+id/lvl" />
 
-    <RadioButton
+    <CheckBox
         android:id="@+id/aghs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
         app:layout_constraintStart_toStartOf="@+id/octarine"
         app:layout_constraintTop_toBottomOf="@+id/prism" />
 
-    <RadioButton
+    <CheckBox
         android:id="@+id/talent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

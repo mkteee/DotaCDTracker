@@ -6,11 +6,10 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +18,7 @@ import androidx.fragment.app.FragmentManager;
 import com.example.dotacdtracker.Data.Hero;
 import com.example.dotacdtracker.Data.HeroMap;
 import com.example.dotacdtracker.Data.Spell;
+import com.example.dotacdtracker.Fragments.OptionsFragment;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -32,6 +32,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class TrackerActivity extends AppCompatActivity {
 
+    private OptionsFragment optionsDialog;
     ArrayList<Hero> heroes = new ArrayList<>();
     ArrayList<Spell> spells = new ArrayList<>();
     CountDownTimer[] cdTimer = new CountDownTimer[8];
@@ -78,7 +79,7 @@ public class TrackerActivity extends AppCompatActivity {
                 }
                 txt = findViewById(R.id.first_spell_cd);
                 indicator = findViewById(R.id.first_indicator);
-                startCountDown(txt, indicator, 0);
+                startSpellCountDown(txt, indicator, 0);
                 break;
             case R.id.second_spell:
             case R.id.spell_btn2:
@@ -88,7 +89,7 @@ public class TrackerActivity extends AppCompatActivity {
                 }
                 txt = findViewById(R.id.second_spell_cd);
                 indicator = findViewById(R.id.second_indicator);
-                startCountDown(txt, indicator, 1);
+                startSpellCountDown(txt, indicator, 1);
                 break;
             case R.id.third_spell:
             case R.id.spell_btn3:
@@ -98,7 +99,7 @@ public class TrackerActivity extends AppCompatActivity {
                 }
                 txt = findViewById(R.id.third_spell_cd);
                 indicator = findViewById(R.id.third_indicator);
-                startCountDown(txt, indicator, 2);
+                startSpellCountDown(txt, indicator, 2);
                 break;
             case R.id.fourth_spell:
             case R.id.spell_btn4:
@@ -108,7 +109,7 @@ public class TrackerActivity extends AppCompatActivity {
                 }
                 txt = findViewById(R.id.fourth_spell_cd);
                 indicator = findViewById(R.id.fourth_indicator);
-                startCountDown(txt, indicator,3);
+                startSpellCountDown(txt, indicator,3);
                 break;
             case R.id.fifth_spell:
             case R.id.spell_btn5:
@@ -118,7 +119,7 @@ public class TrackerActivity extends AppCompatActivity {
                 }
                 txt = findViewById(R.id.fifth_spell_cd);
                 indicator = findViewById(R.id.fifth_indicator);
-                startCountDown(txt, indicator,4);
+                startSpellCountDown(txt, indicator,4);
                 break;
         }
     }
@@ -282,6 +283,43 @@ public class TrackerActivity extends AppCompatActivity {
         }.start();
     }
 
+    public void onMoreClicked(View view){
+        Bundle args = new Bundle();
+        switch (view.getId()){
+            case R.id.options1:
+                args.putBoolean("lvl", heroes.get(0).hasLvl());
+                args.putBoolean("aghs", heroes.get(0).hasAghs());
+                args.putBoolean("talent", heroes.get(0).hasTalent());
+                break;
+            case R.id.options2:
+                args.putBoolean("lvl", heroes.get(1).hasLvl());
+                args.putBoolean("aghs", heroes.get(1).hasAghs());
+                args.putBoolean("talent", heroes.get(1).hasTalent());
+                break;
+            case R.id.options3:
+                args.putBoolean("lvl", heroes.get(2).hasLvl());
+                args.putBoolean("aghs", heroes.get(2).hasAghs());
+                args.putBoolean("talent", heroes.get(2).hasTalent());
+                break;
+            case R.id.options4:
+                args.putBoolean("lvl", heroes.get(3).hasLvl());
+                args.putBoolean("aghs", heroes.get(3).hasAghs());
+                args.putBoolean("talent", heroes.get(3).hasTalent());
+                break;
+            case R.id.options5:
+                args.putBoolean("lvl", heroes.get(4).hasLvl());
+                args.putBoolean("aghs", heroes.get(4).hasAghs());
+                args.putBoolean("talent", heroes.get(4).hasTalent());
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + view.getId());
+        }
+        FragmentManager fm = getSupportFragmentManager();
+        optionsDialog = OptionsFragment.newInstance();
+        optionsDialog.setArguments(args);
+        optionsDialog.show(fm, "options_dialog");
+    }
+
     public void onOkClicked(View view){
 
     }
@@ -298,7 +336,14 @@ public class TrackerActivity extends AppCompatActivity {
 
     }
 
-    public void startCountDown(final TextView field, final ImageView indicator, final int spell_number){
+    /**
+     * Method to start the cooldown timer of spells. Will extract the needed information from the
+     * Hero object, pass them to cooldownCalc and start the timer based on the result.
+     * @param field TextView of the cooldown for the spell
+     * @param indicator ImageView of the indicator for the spell
+     * @param spell_number current Spell/Hero number
+     */
+    public void startSpellCountDown(final TextView field, final ImageView indicator, final int spell_number){
         final Spell spell = spells.get(spell_number);
         final Hero hero = heroes.get(spell_number);
 
@@ -369,7 +414,7 @@ public class TrackerActivity extends AppCompatActivity {
 
     /**
      * Realize the layout, which means disabling and greying out or removing views which hold
-     * no heroes. Will check through each hero and disable Lvl or RadioButtons when they
+     * no heroes. Will check through each hero and disable Lvl or CheckBoxes when they
      * don't have the corresponding attribute.
      */
     public void initializeLayout(){
@@ -391,9 +436,9 @@ public class TrackerActivity extends AppCompatActivity {
         ImageView[] talent_pic = {findViewById(R.id.talent1_pic), findViewById(R.id.talent2_pic),
         findViewById(R.id.talent3_pic), findViewById(R.id.talent4_pic), findViewById(R.id.talent5_pic)};
 
-        RadioButton [] aghs_btn = {findViewById(R.id.aghs1), findViewById(R.id.aghs2), findViewById(R.id.aghs3),
+        CheckBox [] aghs_btn = {findViewById(R.id.aghs1), findViewById(R.id.aghs2), findViewById(R.id.aghs3),
         findViewById(R.id.aghs4), findViewById(R.id.aghs5)};
-        RadioButton [] talent_btn = {findViewById(R.id.talent1), findViewById(R.id.talent2),
+        CheckBox [] talent_btn = {findViewById(R.id.talent1), findViewById(R.id.talent2),
         findViewById(R.id.talent3), findViewById(R.id.talent4), findViewById(R.id.talent5)};
         Button [] lvl_btn = {findViewById(R.id.lvl1), findViewById(R.id.lvl2), findViewById(R.id.lvl3),
         findViewById(R.id.lvl4), findViewById(R.id.lvl5)};
