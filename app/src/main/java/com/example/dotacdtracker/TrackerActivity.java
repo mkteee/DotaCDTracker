@@ -362,6 +362,83 @@ public class TrackerActivity extends AppCompatActivity {
 
     }
 
+    public void onAghsClicked(View view){
+        switch (view.getId()){
+            case R.id.aghs1:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(0).setCurr_aghs(true);
+                }else{
+                    spells.get(0).setCurr_aghs(false);
+                }
+                break;
+            case R.id.aghs2:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(1).setCurr_aghs(true);
+                }else{
+                    spells.get(1).setCurr_aghs(false);
+                }
+                break;
+            case R.id.aghs3:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(2).setCurr_aghs(true);
+                }else{
+                    spells.get(2).setCurr_aghs(false);
+                }
+                break;
+            case R.id.aghs4:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(3).setCurr_aghs(true);
+                }else{
+                    spells.get(3).setCurr_aghs(false);
+                }
+                break;
+            case R.id.aghs5:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(4).setCurr_aghs(true);
+                }else{
+                    spells.get(4).setCurr_aghs(false);
+                }
+        }
+    }
+    public void onTalentClicked(View view){
+        switch (view.getId()){
+            case R.id.talent1:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(0).setCurr_talent(true);
+                }else{
+                    spells.get(0).setCurr_talent(false);
+                }
+                break;
+            case R.id.talent2:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(1).setCurr_talent(true);
+                }else{
+                    spells.get(1).setCurr_talent(false);
+                }
+                break;
+            case R.id.talent3:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(2).setCurr_talent(true);
+                }else{
+                    spells.get(2).setCurr_talent(false);
+                }
+                break;
+            case R.id.talent4:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(3).setCurr_talent(true);
+                }else{
+                    spells.get(3).setCurr_talent(false);
+                }
+                break;
+            case R.id.talent5:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(4).setCurr_talent(true);
+                }else{
+                    spells.get(4).setCurr_talent(false);
+                }
+        }
+    }
+
     public void onResetClicked(View view){
         cdTimer[currHero].cancel();
         switch (currHero){
