@@ -11,6 +11,7 @@
         android:id="@+id/quickening"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onQuickeningClicked"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/octarine"
         app:layout_constraintBottom_toTopOf="@id/prism" />
@@ -19,6 +20,7 @@
         android:id="@+id/prism"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onPrismClicked"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/octarine"
@@ -28,6 +30,7 @@
         android:id="@+id/octarine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onOctarineClicked"
         app:layout_constraintBottom_toBottomOf="@+id/prism"
         app:layout_constraintEnd_toStartOf="@+id/quickening"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,6 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:onClick="onAghsClickedDialog"
         app:layout_constraintStart_toStartOf="@+id/octarine"
         app:layout_constraintTop_toBottomOf="@+id/prism" />
 
@@ -91,6 +95,7 @@
         android:id="@+id/talent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onTalentClickedDialog"
         app:layout_constraintBottom_toBottomOf="@+id/aghs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/aghs"

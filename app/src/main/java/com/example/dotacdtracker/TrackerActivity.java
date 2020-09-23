@@ -32,6 +32,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class TrackerActivity extends AppCompatActivity {
 
+    private OptionsFragment optionsDialog;
     ArrayList<Hero> heroes = new ArrayList<>();
     ArrayList<Spell> spells = new ArrayList<>();
     CountDownTimer[] cdTimer = new CountDownTimer[8];
@@ -350,12 +351,15 @@ public class TrackerActivity extends AppCompatActivity {
                 throw new IllegalStateException("Unexpected value: " + view.getId());
         }
         FragmentManager fm = getSupportFragmentManager();
-        OptionsFragment optionsDialog = OptionsFragment.newInstance();
+        optionsDialog = OptionsFragment.newInstance();
         optionsDialog.setArguments(args);
         optionsDialog.show(fm, "options_dialog");
     }
 
     public void onOkClicked(View view){
+
+
+        if(optionsDialog != null) optionsDialog.dismiss();
     }
 
     public void onRetroClicked(View view){
@@ -400,6 +404,249 @@ public class TrackerActivity extends AppCompatActivity {
                 }
         }
     }
+
+    public void onAghsClickedDialog(View view){
+        switch(currHero){
+            case 0:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(0).setCurr_aghs(true);
+                }else{
+                    spells.get(0).setCurr_aghs(false);
+                }
+                break;
+            case 1:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(1).setCurr_aghs(true);
+                }else{
+                    spells.get(1).setCurr_aghs(false);
+                }
+                break;
+            case 2:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(2).setCurr_aghs(true);
+                }else{
+                    spells.get(2).setCurr_aghs(false);
+                }
+                break;
+            case 3:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(3).setCurr_aghs(true);
+                }else{
+                    spells.get(3).setCurr_aghs(false);
+                }
+                break;
+            case 4:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(4).setCurr_aghs(true);
+                }else{
+                    spells.get(4).setCurr_aghs(false);
+                }
+        }
+    }
+
+    public void onTalentClickedDialog(View view){
+        switch(currHero){
+            case 0:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(0).setCurr_talent(true);
+                }else{
+                    spells.get(0).setCurr_talent(false);
+                }
+                break;
+            case 1:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(1).setCurr_talent(true);
+                }else{
+                    spells.get(1).setCurr_talent(false);
+                }
+                break;
+            case 2:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(2).setCurr_talent(true);
+                }else{
+                    spells.get(2).setCurr_talent(false);
+                }
+                break;
+            case 3:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(3).setCurr_talent(true);
+                }else{
+                    spells.get(3).setCurr_talent(false);
+                }
+                break;
+            case 4:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(4).setCurr_talent(true);
+                }else{
+                    spells.get(4).setCurr_talent(false);
+                }
+                break;
+        }
+    }
+
+    public void onQuickeningClicked(View view){
+        CheckBox quickening = (CheckBox) view;
+        CheckBox prism = (CheckBox) findViewById(R.id.prism);
+        switch (currHero){
+            case 0:
+                if(quickening.isChecked()){
+                    if(prism.isChecked()){
+                        prism.setChecked(false);
+                        spells.get(0).setPrism(false);
+                    }
+                    spells.get(0).setQuickening(true);
+                }else{
+                    spells.get(0).setQuickening(false);
+                }
+                break;
+            case 1:
+                if(quickening.isChecked()){
+                    if(prism.isChecked()){
+                        prism.setChecked(false);
+                        spells.get(1).setPrism(false);
+                    }
+                    spells.get(1).setQuickening(true);
+                }else{
+                    spells.get(1).setQuickening(false);
+                }
+                break;
+            case 2:
+                if(quickening.isChecked()){
+                    if(prism.isChecked()){
+                        prism.setChecked(false);
+                        spells.get(2).setPrism(false);
+                    }
+                    spells.get(2).setQuickening(true);
+                }else{
+                    spells.get(2).setQuickening(false);
+                }
+                break;
+            case 3:
+                if(quickening.isChecked()){
+                    if(prism.isChecked()){
+                        prism.setChecked(false);
+                        spells.get(3).setPrism(false);
+                    }
+                    spells.get(3).setQuickening(true);
+                }else{
+                    spells.get(3).setQuickening(false);
+                }
+                break;
+            case 4:
+                if(quickening.isChecked()){
+                    if(prism.isChecked()){
+                        prism.setChecked(false);
+                        spells.get(4).setPrism(false);
+                    }
+                    spells.get(4).setQuickening(true);
+                }else{
+                    spells.get(4).setQuickening(false);
+                }
+        }
+    }
+
+    public void onPrismClicked(View view){
+        CheckBox prism = (CheckBox) view;
+        CheckBox quickening = (CheckBox) findViewById(R.id.quickening);
+        switch (currHero) {
+            case 0:
+                if (prism.isChecked()) {
+                    if (quickening.isChecked()) {
+                        quickening.setChecked(false);
+                        spells.get(0).setQuickening(false);
+                    }
+                    spells.get(0).setPrism(true);
+                } else {
+                    spells.get(0).setPrism(false);
+                }
+                break;
+            case 1:
+                if (prism.isChecked()) {
+                    if (quickening.isChecked()) {
+                        quickening.setChecked(false);
+                        spells.get(1).setQuickening(false);
+                    }
+                    spells.get(1).setPrism(true);
+                } else {
+                    spells.get(1).setPrism(false);
+                }
+                break;
+            case 2:
+                if (prism.isChecked()) {
+                    if (quickening.isChecked()) {
+                        quickening.setChecked(false);
+                        spells.get(2).setQuickening(false);
+                    }
+                    spells.get(2).setPrism(true);
+                } else {
+                    spells.get(2).setPrism(false);
+                }
+                break;
+            case 3:
+                if (prism.isChecked()) {
+                    if (quickening.isChecked()) {
+                        quickening.setChecked(false);
+                        spells.get(3).setQuickening(false);
+                    }
+                    spells.get(3).setPrism(true);
+                } else {
+                    spells.get(3).setPrism(false);
+                }
+                break;
+            case 4:
+                if (prism.isChecked()) {
+                    if (quickening.isChecked()) {
+                        quickening.setChecked(false);
+                        spells.get(4).setQuickening(false);
+                    }
+                    spells.get(4).setPrism(true);
+                } else {
+                    spells.get(4).setPrism(false);
+                }
+        }
+    }
+
+    public void onOctarineClicked(View view){
+        switch (currHero){
+            case 0:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(0).setOctarine(true);
+                }else{
+                    spells.get(0).setOctarine(false);
+                }
+                break;
+            case 1:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(1).setOctarine(true);
+                }else{
+                    spells.get(1).setOctarine(false);
+                }
+                break;
+            case 2:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(2).setOctarine(true);
+                }else{
+                    spells.get(2).setOctarine(false);
+                }
+                break;
+            case 3:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(3).setOctarine(true);
+                }else{
+                    spells.get(3).setOctarine(false);
+                }
+                break;
+            case 4:
+                if(((CheckBox) view).isChecked()){
+                    spells.get(4).setOctarine(true);
+                }else{
+                    spells.get(4).setOctarine(false);
+                }
+                break;
+        }
+    }
+
+
     public void onTalentClicked(View view){
         switch (view.getId()){
             case R.id.talent1:
