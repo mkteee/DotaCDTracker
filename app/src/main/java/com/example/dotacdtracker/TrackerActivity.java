@@ -23,6 +23,13 @@ import com.example.dotacdtracker.Data.Spell;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * TrackerActivity which is the main screen while you are in-game. Will show every important
+ * spell for each hero and give you options to lvl up or assign neutral items etc. to the
+ * wanted spell. Cooldowns should consider their respective chosen options to correctly calculate
+ * and present the cooldown. Can be reset by clicking again or using the more button.
+ * Also has a tracker for Roshan, Aegis and Neutral Items.
+ */
 public class TrackerActivity extends AppCompatActivity {
 
     ArrayList<Hero> heroes = new ArrayList<>();
@@ -30,6 +37,11 @@ public class TrackerActivity extends AppCompatActivity {
     CountDownTimer[] cdTimer = new CountDownTimer[8];
     boolean[] hasStarted = new boolean[8];  //1-5 spells -- 6 roshan -- 7 aegis -- 8 neutral
 
+    /**
+     * After calling super it will extract the Hero objects given through their id.
+     * Will also initialize the layout by calling initializeLayout.
+     * @param savedInstanceState saved state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +60,11 @@ public class TrackerActivity extends AppCompatActivity {
         initializeLayout();
     }
 
+    /**
+     * Handler for the clicking on spells. Starts the cooldown for the corresponding spell by
+     * calling the startCountDown for the clicked spell.
+     * @param view spell_img which was clicked
+     */
     public void onSpellClicked(View view){
         TextView txt;
         ImageView indicator;
@@ -137,11 +154,16 @@ public class TrackerActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Helping Method to start the timer for neutral items. Needs the current indicator and will
+     * pass the according millis to the next timer until all items have dropped.
+     * @param millis passed millis depending on current tier of items
+     * @param indicator indicator which should turn green after this cycle is over
+     */
     public void startNeutralTimer(int millis, final ImageView indicator){
         final TextView field = findViewById(R.id.neutral_timer);
 
         hasStarted[7] = true;
-
         cdTimer[7] = new CountDownTimer(millis, 995) {
             @SuppressLint({"SetTextI18n", "DefaultLocale"})
             @Override
@@ -168,7 +190,7 @@ public class TrackerActivity extends AppCompatActivity {
                         startNeutralTimer(1380000, (ImageView) findViewById(R.id.tier5_indicator));
                         break;
                     case R.id.tier5_indicator:
-                        field.setText(R.string.dropped);
+                        field.setText(getString(R.string.dropped));
                 }
             }
         }.start();
@@ -321,6 +343,16 @@ public class TrackerActivity extends AppCompatActivity {
         }.start();
     }
 
+    /**
+     * Method to calculate the cooldown of the given spell of a hero. Will check for cooldown
+     * reductions from the objects parameters.
+     * @param cooldown basic cooldown of the ability (includes flat reduction from aghs/talent
+     * @param talent if hero has percent based talent (or flat reduction)
+     * @param octarine if hero has octarine equipped
+     * @param neutral if hero has a neutral item equipped
+     * @param aghs flat reduction
+     * @return the calculated actual cooldown after reduction
+     */
     public float cooldownCalc(float cooldown, float talent, float octarine, float neutral,
                              float aghs){
         float talent_flat = 0;
@@ -335,8 +367,14 @@ public class TrackerActivity extends AppCompatActivity {
         return (cooldown * (1- talent_percent) * (1-octarine) * (1-neutral));
     }
 
+    /**
+     * Realize the layout, which means disabling and greying out or removing views which hold
+     * no heroes. Will check through each hero and disable Lvl or RadioButtons when they
+     * don't have the corresponding attribute.
+     */
     public void initializeLayout(){
         int curr_hero = 0;
+        Resources res = getResources();
 
         ImageView[] spell_img1 = {findViewById(R.id.first_spell), findViewById(R.id.second_spell),
         findViewById(R.id.third_spell), findViewById(R.id.fourth_spell), findViewById(R.id.fifth_spell)};
@@ -362,9 +400,6 @@ public class TrackerActivity extends AppCompatActivity {
         Button [] more_btn = {findViewById(R.id.options1), findViewById(R.id.options2),
         findViewById(R.id.options3), findViewById(R.id.options4), findViewById(R.id.options5)};
 
-        Resources res = getResources();
-
-        //view.setColorFilter(Color.argb(150,200,200,200));
         for(Hero hero : heroes){
             String mDrawableName = heroes.get(curr_hero).getIcon_name();
             int resID = res.getIdentifier(mDrawableName , "drawable", getPackageName());
