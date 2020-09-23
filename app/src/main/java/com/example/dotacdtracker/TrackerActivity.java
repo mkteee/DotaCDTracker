@@ -32,11 +32,11 @@ import java.util.concurrent.TimeUnit;
  */
 public class TrackerActivity extends AppCompatActivity {
 
-    private OptionsFragment optionsDialog;
     ArrayList<Hero> heroes = new ArrayList<>();
     ArrayList<Spell> spells = new ArrayList<>();
     CountDownTimer[] cdTimer = new CountDownTimer[8];
     boolean[] hasStarted = new boolean[8];  //1-5 spells -- 6 roshan -- 7 aegis -- 8 neutral
+    int currHero = 0;
 
     /**
      * After calling super it will extract the Hero objects given through their id.
@@ -290,38 +290,72 @@ public class TrackerActivity extends AppCompatActivity {
                 args.putBoolean("lvl", heroes.get(0).hasLvl());
                 args.putBoolean("aghs", heroes.get(0).hasAghs());
                 args.putBoolean("talent", heroes.get(0).hasTalent());
+                args.putInt("curr_lvl", spells.get(0).getCurr_lvl());
+                args.putBoolean("octarine", spells.get(0).hasOctarine());
+                args.putBoolean("quickening", spells.get(0).hasQuickening());
+                args.putBoolean("prism", spells.get(0).hasPrism());
+                args.putBoolean("curr_aghs", spells.get(0).hasAghs());
+                args.putBoolean("curr_talent", spells.get(0).hasTalent());
+                currHero = 0;
                 break;
             case R.id.options2:
                 args.putBoolean("lvl", heroes.get(1).hasLvl());
                 args.putBoolean("aghs", heroes.get(1).hasAghs());
                 args.putBoolean("talent", heroes.get(1).hasTalent());
+                args.putInt("curr_lvl", spells.get(1).getCurr_lvl());
+                args.putBoolean("octarine", spells.get(1).hasOctarine());
+                args.putBoolean("quickening", spells.get(1).hasQuickening());
+                args.putBoolean("prism", spells.get(1).hasPrism());
+                args.putBoolean("curr_aghs", spells.get(1).hasAghs());
+                args.putBoolean("curr_talent", spells.get(1).hasTalent());
+                currHero = 1;
                 break;
             case R.id.options3:
                 args.putBoolean("lvl", heroes.get(2).hasLvl());
                 args.putBoolean("aghs", heroes.get(2).hasAghs());
                 args.putBoolean("talent", heroes.get(2).hasTalent());
+                args.putInt("curr_lvl", spells.get(2).getCurr_lvl());
+                args.putBoolean("octarine", spells.get(2).hasOctarine());
+                args.putBoolean("quickening", spells.get(2).hasQuickening());
+                args.putBoolean("prism", spells.get(2).hasPrism());
+                args.putBoolean("curr_aghs", spells.get(2).hasAghs());
+                args.putBoolean("curr_talent", spells.get(2).hasTalent());
+                currHero = 2;
                 break;
             case R.id.options4:
                 args.putBoolean("lvl", heroes.get(3).hasLvl());
                 args.putBoolean("aghs", heroes.get(3).hasAghs());
                 args.putBoolean("talent", heroes.get(3).hasTalent());
+                args.putInt("curr_lvl", spells.get(3).getCurr_lvl());
+                args.putBoolean("octarine", spells.get(3).hasOctarine());
+                args.putBoolean("quickening", spells.get(3).hasQuickening());
+                args.putBoolean("prism", spells.get(3).hasPrism());
+                args.putBoolean("curr_aghs", spells.get(3).hasAghs());
+                args.putBoolean("curr_talent", spells.get(3).hasTalent());
+                currHero = 3;
                 break;
             case R.id.options5:
                 args.putBoolean("lvl", heroes.get(4).hasLvl());
                 args.putBoolean("aghs", heroes.get(4).hasAghs());
                 args.putBoolean("talent", heroes.get(4).hasTalent());
+                args.putInt("curr_lvl", spells.get(4).getCurr_lvl());
+                args.putBoolean("octarine", spells.get(4).hasOctarine());
+                args.putBoolean("quickening", spells.get(4).hasQuickening());
+                args.putBoolean("prism", spells.get(4).hasPrism());
+                args.putBoolean("curr_aghs", spells.get(4).hasAghs());
+                args.putBoolean("curr_talent", spells.get(4).hasTalent());
+                currHero = 4;
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + view.getId());
         }
         FragmentManager fm = getSupportFragmentManager();
-        optionsDialog = OptionsFragment.newInstance();
+        OptionsFragment optionsDialog = OptionsFragment.newInstance();
         optionsDialog.setArguments(args);
         optionsDialog.show(fm, "options_dialog");
     }
 
     public void onOkClicked(View view){
-
     }
 
     public void onRetroClicked(View view){
@@ -329,11 +363,125 @@ public class TrackerActivity extends AppCompatActivity {
     }
 
     public void onResetClicked(View view){
-
+        cdTimer[currHero].cancel();
+        switch (currHero){
+            case 0:
+                ((TextView) findViewById(R.id.first_spell_cd)).setText(getString(R.string.spell_ready));
+                ((ImageView) findViewById(R.id.first_indicator)).setImageResource(R.drawable.ic_spell_ready);
+                break;
+            case 1:
+                ((TextView) findViewById(R.id.second_spell_cd)).setText(getString(R.string.spell_ready));
+                ((ImageView) findViewById(R.id.second_indicator)).setImageResource(R.drawable.ic_spell_ready);
+                break;
+            case 2:
+                ((TextView) findViewById(R.id.third_spell_cd)).setText(getString(R.string.spell_ready));
+                ((ImageView) findViewById(R.id.third_indicator)).setImageResource(R.drawable.ic_spell_ready);
+                break;
+            case 3:
+                ((TextView) findViewById(R.id.fourth_spell_cd)).setText(getString(R.string.spell_ready));
+                ((ImageView) findViewById(R.id.fourth_indicator)).setImageResource(R.drawable.ic_spell_ready);
+                break;
+            case 4:
+                ((TextView) findViewById(R.id.fifth_spell_cd)).setText(getString(R.string.spell_ready));
+                ((ImageView) findViewById(R.id.fifth_indicator)).setImageResource(R.drawable.ic_spell_ready);
+                break;
+        }
+    }
+    public void onLvlClickedDialog(View view){
+        Button btn = (Button) view;
+        switch (btn.getText().toString()) {
+            case "lvl1":
+                btn.setText(getString(R.string.ult_lvl2));
+                spells.get(currHero).setCurr_lvl(1);
+                break;
+            case "lvl2":
+                btn.setText(getString(R.string.ult_lvl3));
+                spells.get(currHero).setCurr_lvl(2);
+                break;
+            case "lvl3":
+                btn.setText(getString(R.string.ult_lvl1));
+                spells.get(currHero).setCurr_lvl(0);
+        }
     }
 
     public void onLvlClicked(View view){
-
+        Button btn = (Button) view;
+        switch (view.getId()){
+            case R.id.lvl1:
+                switch (btn.getText().toString()){
+                    case "lvl1":
+                        btn.setText(getString(R.string.ult_lvl2));
+                        spells.get(0).setCurr_lvl(1);
+                        break;
+                    case "lvl2":
+                        btn.setText(getString(R.string.ult_lvl3));
+                        spells.get(0).setCurr_lvl(2);
+                        break;
+                    case "lvl3":
+                        btn.setText(getString(R.string.ult_lvl1));
+                        spells.get(0).setCurr_lvl(0);
+                }
+                break;
+            case R.id.lvl2:
+                switch (btn.getText().toString()){
+                    case "lvl1":
+                        btn.setText(getString(R.string.ult_lvl2));
+                        spells.get(1).setCurr_lvl(1);
+                        break;
+                    case "lvl2":
+                        btn.setText(getString(R.string.ult_lvl3));
+                        spells.get(1).setCurr_lvl(2);
+                        break;
+                    case "lvl3":
+                        btn.setText(getString(R.string.ult_lvl1));
+                        spells.get(1).setCurr_lvl(0);
+                }
+                break;
+            case R.id.lvl3:
+                switch (btn.getText().toString()){
+                    case "lvl1":
+                        btn.setText(getString(R.string.ult_lvl2));
+                        spells.get(2).setCurr_lvl(1);
+                        break;
+                    case "lvl2":
+                        btn.setText(getString(R.string.ult_lvl3));
+                        spells.get(2).setCurr_lvl(2);
+                        break;
+                    case "lvl3":
+                        btn.setText(getString(R.string.ult_lvl1));
+                        spells.get(2).setCurr_lvl(0);
+                }
+                break;
+            case R.id.lvl4:
+                switch (btn.getText().toString()){
+                    case "lvl1":
+                        btn.setText(getString(R.string.ult_lvl2));
+                        spells.get(3).setCurr_lvl(1);
+                        break;
+                    case "lvl2":
+                        btn.setText(getString(R.string.ult_lvl3));
+                        spells.get(3).setCurr_lvl(2);
+                        break;
+                    case "lvl3":
+                        btn.setText(getString(R.string.ult_lvl1));
+                        spells.get(3).setCurr_lvl(0);
+                }
+                break;
+            case R.id.lvl5:
+                switch (btn.getText().toString()){
+                    case "lvl1":
+                        btn.setText(getString(R.string.ult_lvl2));
+                        spells.get(4).setCurr_lvl(1);
+                        break;
+                    case "lvl2":
+                        btn.setText(getString(R.string.ult_lvl3));
+                        spells.get(4).setCurr_lvl(2);
+                        break;
+                    case "lvl3":
+                        btn.setText(getString(R.string.ult_lvl1));
+                        spells.get(4).setCurr_lvl(0);
+                }
+        }
     }
 
     /**

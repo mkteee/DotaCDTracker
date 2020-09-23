@@ -5,13 +5,15 @@ public class Spell {
     String spell;
     float cooldown;
     float [] lvl_reduction;
-    int curr_lvl = 0;
     float talent_reduction;
     float aghs_reduction;
-    String icon_name;
+    int curr_lvl = 0;
+    boolean curr_aghs = false;
+    boolean curr_talent = false;
     boolean octarine = false;
     boolean quickening = false;
     boolean prism = false;
+    String icon_name;
 
     public Spell(String spell, float cooldown, float[] lvl_reduction, float talent_reduction,
                  float aghs_reduction, String icon_name){
@@ -47,15 +49,9 @@ public class Spell {
     public int getCurr_lvl() {
         return curr_lvl;
     }
-    public boolean hasOctarine(){
-        return octarine;
-    }
-    public boolean hasQuickening(){
-        return quickening;
-    }
-    public boolean hasPrism(){
-        return prism;
-    }
+    public boolean hasOctarine(){ return octarine; }
+    public boolean hasQuickening(){ return quickening; }
+    public boolean hasPrism(){ return prism; }
     public void setOctarine(boolean octarine) {
         this.octarine = octarine;
     }
@@ -65,4 +61,13 @@ public class Spell {
     public void setPrism(boolean prism) {
         this.prism = prism;
     }
+    public void setCurr_aghs(boolean curr_aghs) {
+        this.curr_aghs = curr_aghs;
+    }
+    public void setCurr_talent(boolean curr_talent) {
+        this.curr_talent = curr_talent;
+    }
+    public boolean hasAghs(){ return curr_aghs; }
+    public boolean hasTalent(){ return curr_talent; }
+
 }

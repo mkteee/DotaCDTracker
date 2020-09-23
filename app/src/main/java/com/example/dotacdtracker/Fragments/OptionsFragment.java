@@ -18,6 +18,9 @@ public class OptionsFragment extends DialogFragment {
     Button lvl;
     CheckBox aghs;
     CheckBox talent;
+    CheckBox octarine;
+    CheckBox quickening;
+    CheckBox prism;
 
     public static OptionsFragment newInstance() {
         return new OptionsFragment();
@@ -29,6 +32,10 @@ public class OptionsFragment extends DialogFragment {
         lvl = view.findViewById(R.id.lvl);
         aghs = view.findViewById(R.id.aghs);
         talent = view.findViewById(R.id.talent);
+        octarine = view.findViewById(R.id.octarine);
+        quickening = view.findViewById(R.id.quickening);
+        prism = view.findViewById(R.id.prism);
+
         return view;
     }
     @Override
@@ -38,14 +45,41 @@ public class OptionsFragment extends DialogFragment {
         boolean hasLvl = getArguments().getBoolean("lvl");
         boolean hasAghs = getArguments().getBoolean("aghs");
         boolean hasTalent = getArguments().getBoolean("talent");
+        int curr_lvl = getArguments().getInt("curr_lvl");
+        boolean curr_aghs = getArguments().getBoolean("curr_aghs");
+        boolean curr_talent = getArguments().getBoolean("curr_talent");
+        boolean has_octarine = getArguments().getBoolean("octarine");
+        boolean has_quickening = getArguments().getBoolean("quickening");
+        boolean has_prism = getArguments().getBoolean("prism");
+
         if(!hasLvl){
             lvl.setEnabled(false);
+        }else{
+            switch (curr_lvl){
+                case 0:
+                    lvl.setText(getString(R.string.ult_lvl1));
+                    break;
+                case 1:
+                    lvl.setText(getString(R.string.ult_lvl2));
+                    break;
+                case 2:
+                    lvl.setText(getString(R.string.ult_lvl3));
+                    break;
+            }
         }
         if(!hasAghs){
             aghs.setEnabled(false);
+        }else{
+            aghs.setChecked(curr_aghs);
         }
         if(!hasTalent){
             talent.setEnabled(false);
+        }else{
+            talent.setChecked(curr_talent);
         }
+        octarine.setChecked(has_octarine);
+        quickening.setChecked(has_quickening);
+        prism.setChecked(has_prism);
+
     }
 }
