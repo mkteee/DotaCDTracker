@@ -4,11 +4,11 @@ public class HeroMap {
 
     private static final Hero beast = new Hero("Beastmaster", "Primal Roar", 90,
             false, false, true, 0, 0,
-            new float[]{10, 10}, "primal_roar_icon", "beastmaster_icon", "beast");
+            new float[]{10, 20}, "primal_roar_icon", "beastmaster_icon", "beast");
 
     private static final Hero brew = new Hero("Brewmaster", "Primal Split", 140,
             true, false, true, 65, 0,
-            new float[]{10, 10}, "primal_split_icon", "brewmaster_icon", "brew");
+            new float[]{10, 20}, "primal_split_icon", "brewmaster_icon", "brew");
 
     private static final Hero doom = new Hero("Doom", "Doom", 145,
             false, false, false, 0, 0,
@@ -16,11 +16,11 @@ public class HeroMap {
 
     private static final Hero shaker = new Hero("Earthshaker", "Echo Slam", 150,
             false, false, true, 0, 0,
-            new float[]{20, 20}, "echo_slam_icon", "earthshaker_icon", "shaker");
+            new float[]{20, 40}, "echo_slam_icon", "earthshaker_icon", "shaker");
 
     private static final Hero lycan = new Hero("Lycan", "Shapeshift", 125,
             true, false, true, 0.1f, 0,
-            new float[]{15, 15}, "shapeshift_icon", "lycan_icon", "lycan");
+            new float[]{15, 30}, "shapeshift_icon", "lycan_icon", "lycan");
 
     private static final Hero magnus = new Hero("Magnus", "Reverse Polarity", 130,
             false, false, false, 0, 0,
@@ -28,11 +28,11 @@ public class HeroMap {
 
     private static final Hero balanar = new Hero("Night Stalker", "Dark Ascension", 140,
             true, false, true, 60, 0,
-            new float[]{10, 10}, "dark_ascension_icon", "night_stalker_icon", "balanar");
+            new float[]{10, 20}, "dark_ascension_icon", "night_stalker_icon", "balanar");
 
     private static final Hero omni = new Hero("Omniknight", "Guardian Angel", 160,
             true, false, true, 60, 0,
-            new float[]{10, 10}, "guardian_angel_icon", "omniknight_icon", "omni");
+            new float[]{10, 20}, "guardian_angel_icon", "omniknight_icon", "omni");
 
     private static final Hero phoenix = new Hero("Phoenix", "Supernova", 110,
             false, false, false, 0, 0,
@@ -40,7 +40,7 @@ public class HeroMap {
 
     private static final Hero sand_king = new Hero("Sand King", "Epicenter", 120,
             false, false, true, 0, 0,
-            new float[]{10, 10}, "epicenter_icon", "sand_king_icon", "sand_king");
+            new float[]{10, 20}, "epicenter_icon", "sand_king_icon", "sand_king");
 
     private static final Hero snapfire = new Hero("Snapfire", "Mortimer Kisses", 110,
             false, false, false, 0, 0,
@@ -60,15 +60,15 @@ public class HeroMap {
 
     private static final Hero underlord = new Hero("Underlord", "Dark Rift", 130,
             false, false, true, 0, 0,
-            new float[]{15, 15}, "dark_rift_icon", "underlord_icon", "underlord");
+            new float[]{15, 30}, "dark_rift_icon", "underlord_icon", "underlord");
 
     private static final Hero undying = new Hero("Undying", "Tombstone", 85,
             false, false, true, 0, 0,
-            new float[]{5, 5, 5}, "tombstone_icon", "undying_icon", "undying");
+            new float[]{5, 10, 15}, "tombstone_icon", "undying_icon", "undying");
 
     private static final Hero wk = new Hero("Wraith King", "Reincarnation", 200,
             false, false, true, 0, 0,
-            new float[]{80, 80}, "reincarnation_icon", "wraith_king_icon", "wk");
+            new float[]{80, 160}, "reincarnation_icon", "wraith_king_icon", "wk");
 
     private static final Hero faceless_void = new Hero("Faceless Void", "Chronosphere", 160,
             false, false, false, 0, 0,
@@ -88,11 +88,11 @@ public class HeroMap {
 
     private static final Hero monkey = new Hero("Monkey King", "Wukong's Command", 130,
             false, false, true, 0, 0,
-            new float[]{20, 20}, "wukongs_command_icon", "monkey_king_icon", "monkey");
+            new float[]{20, 40}, "wukongs_command_icon", "monkey_king_icon", "monkey");
 
     private static final Hero naga = new Hero("Naga Siren", "Song of the Siren", 160,
             false, true, true, 0, 20,
-            new float[]{40, 40}, "song_of_the_siren_icon", "naga_siren_icon", "naga");
+            new float[]{40, 80}, "song_of_the_siren_icon", "naga_siren_icon", "naga");
 
     private static final Hero pango = new Hero("Pangolier", "Rolling Thunder", 70,
             true, false, false, 28, 0,
@@ -100,15 +100,15 @@ public class HeroMap {
 
     private static final Hero sf = new Hero("Shadow Fiend", "Requiem of Souls", 120,
             true, false, true, 0.3f, 0,
-            new float[]{10, 10}, "requiem_of_souls_icon", "shadow_fiend_icon", "sf");
+            new float[]{10, 20}, "requiem_of_souls_icon", "shadow_fiend_icon", "sf");
 
     private static final Hero slark = new Hero("Slark", "Shadow Dance", 80,
             false, false, true, 0, 0,
-            new float[]{10, 10}, "shadow_dance_icon", "slark_icon", "slark");
+            new float[]{10, 20}, "shadow_dance_icon", "slark_icon", "slark");
 
     private static final Hero spec = new Hero("Spectre", "Haunt", 180,
             false, false, true, 0, 0,
-            new float[]{20, 20}, "haunt_icon", "spectre_icon", "spec");
+            new float[]{20, 40}, "haunt_icon", "spectre_icon", "spec");
 
     private static final Hero tb = new Hero("Terrorblade", "Metamorphosis", 155,
             false, false, false, 0, 0,
@@ -120,23 +120,23 @@ public class HeroMap {
 
     private static final Hero veno = new Hero("Venomancer", "Poison Nova", 140,
             false, true, true, 0, 40,
-            new float[]{20, 20}, "poison_nova_icon", "venomancer_icon", "veno");
+            new float[]{20, 40}, "poison_nova_icon", "venomancer_icon", "veno");
 
     private static final Hero weaver = new Hero("Weaver", "Time Lapse", 70,
             false, true, true, 0, 20,
-            new float[]{15, 15}, "time_lapse_icon", "weaver_icon", "weaver");
+            new float[]{15, 30}, "time_lapse_icon", "weaver_icon", "weaver");
 
     private static final Hero bane = new Hero("Bane", "Fiend's Grip", 120,
             false, false, true, 0, 0,
-            new float[]{10, 10}, "fiends_grip_icon", "bane_icon", "bane");
+            new float[]{10, 20}, "fiends_grip_icon", "bane_icon", "bane");
 
     private static final Hero bat = new Hero("Batrider", "Flaming Lasso", 100,
             true, false, true, 0.12f, 0,
-            new float[]{10, 10}, "flaming_lasso_icon", "batrider_icon", "bat");
+            new float[]{10, 20}, "flaming_lasso_icon", "batrider_icon", "bat");
 
     private static final Hero cm = new Hero("Crystal Maiden", "Freezing Field", 110,
             false, false, true, 0, 0,
-            new float[]{10, 10}, "freezing_field_icon", "crystal_maiden_icon", "cm");
+            new float[]{10, 20}, "freezing_field_icon", "crystal_maiden_icon", "cm");
 
     private static final Hero dark_seer = new Hero("Dark Seer", "Wall of Replica", 100,
             false, false, false, 0, 0,
@@ -148,11 +148,11 @@ public class HeroMap {
 
     private static final Hero disruptor = new Hero("Disruptor", "Static Storm", 90,
             false, false, true, 0, 0,
-            new float[]{10, 10}, "static_storm_icon", "disruptor_icon", "disruptor");
+            new float[]{10, 20}, "static_storm_icon", "disruptor_icon", "disruptor");
 
     private static final Hero enigma = new Hero("Enigma", "Black Hole", 200,
             true, false, true, 0.12f, 0,
-            new float[]{20, 20}, "black_hole_icon", "enigma_icon", "enigma");
+            new float[]{20, 40}, "black_hole_icon", "enigma_icon", "enigma");
 
     private static final Hero invo = new Hero("Invoker", "Cataclysm", 90,
             false, false, false, 0, 0,
@@ -164,11 +164,11 @@ public class HeroMap {
 
     private static final Hero lich = new Hero("Lich", "Chain Frost", 100,
             false, false, true, 0, 0,
-            new float[]{20, 20}, "chain_frost_icon", "lich_icon", "lich");
+            new float[]{20, 40}, "chain_frost_icon", "lich_icon", "lich");
 
     private static final Hero lion = new Hero("Lion", "Finger of Death", 160,
             false, true, true, 0, 20,
-            new float[]{60, 60}, "finger_of_death_icon", "lion_icon", "lion");
+            new float[]{60, 120}, "finger_of_death_icon", "lion_icon", "lion");
 
     private static final Hero necro = new Hero("Necrophos", "Reaper's Scythe", 120,
             false, false, false, 0, 0,
@@ -188,7 +188,7 @@ public class HeroMap {
 
     private static final Hero silencer = new Hero("Silencer", "Global Silence", 130,
             true, false, true, 0.3f, 0,
-            new float[]{15, 15}, "global_silence_icon", "silencer_icon", "silencer");
+            new float[]{15, 30}, "global_silence_icon", "silencer_icon", "silencer");
 
     private static final Hero warlock = new Hero("Warlock", "Chaotic Offering", 170,
             false, false, false, 0, 0,
