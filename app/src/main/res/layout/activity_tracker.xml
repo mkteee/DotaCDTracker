@@ -11,9 +11,10 @@
 
     <ImageView
         android:id="@+id/first_spell"
-        android:layout_width="75dp"
+        android:layout_width="70dp"
         android:layout_height="75dp"
         android:layout_marginTop="5dp"
+        android:layout_marginStart="2dp"
         android:onClick="onSpellClicked"
         app:layout_constraintEnd_toStartOf="@id/second_spell"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +24,7 @@
 
     <ImageView
         android:id="@+id/second_spell"
-        android:layout_width="75dp"
+        android:layout_width="70dp"
         android:layout_height="75dp"
         android:layout_marginTop="5dp"
         android:onClick="onSpellClicked"
@@ -35,7 +36,7 @@
 
     <ImageView
         android:id="@+id/third_spell"
-        android:layout_width="75dp"
+        android:layout_width="70dp"
         android:layout_height="75dp"
         android:layout_marginTop="5dp"
         android:onClick="onSpellClicked"
@@ -47,7 +48,7 @@
 
     <ImageView
         android:id="@+id/fourth_spell"
-        android:layout_width="75dp"
+        android:layout_width="70dp"
         android:layout_height="75dp"
         android:layout_marginTop="5dp"
         android:onClick="onSpellClicked"
@@ -59,9 +60,10 @@
 
     <ImageView
         android:id="@+id/fifth_spell"
-        android:layout_width="75dp"
+        android:layout_width="70dp"
         android:layout_height="75dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="2dp"
         android:onClick="onSpellClicked"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
