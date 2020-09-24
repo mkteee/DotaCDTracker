@@ -36,6 +36,7 @@ public class TrackerActivity extends AppCompatActivity {
     ArrayList<Hero> heroes = new ArrayList<>();
     ArrayList<Spell> spells = new ArrayList<>();
     CountDownTimer[] cdTimer = new CountDownTimer[8];
+    long [] timeLeft = new long[5];
     boolean[] hasStarted = new boolean[8];  //1-5 spells -- 6 roshan -- 7 aegis -- 8 neutral
     int currHero = 0;
 
@@ -80,7 +81,7 @@ public class TrackerActivity extends AppCompatActivity {
                 }
                 txt = findViewById(R.id.first_spell_cd);
                 indicator = findViewById(R.id.first_indicator);
-                startSpellCountDown(txt, indicator, 0);
+                startSpellCountDown(txt, indicator, 0, 0);
                 break;
             case R.id.second_spell:
             case R.id.spell_btn2:
@@ -90,7 +91,7 @@ public class TrackerActivity extends AppCompatActivity {
                 }
                 txt = findViewById(R.id.second_spell_cd);
                 indicator = findViewById(R.id.second_indicator);
-                startSpellCountDown(txt, indicator, 1);
+                startSpellCountDown(txt, indicator, 1, 0);
                 break;
             case R.id.third_spell:
             case R.id.spell_btn3:
@@ -100,7 +101,7 @@ public class TrackerActivity extends AppCompatActivity {
                 }
                 txt = findViewById(R.id.third_spell_cd);
                 indicator = findViewById(R.id.third_indicator);
-                startSpellCountDown(txt, indicator, 2);
+                startSpellCountDown(txt, indicator, 2, 0);
                 break;
             case R.id.fourth_spell:
             case R.id.spell_btn4:
@@ -110,7 +111,7 @@ public class TrackerActivity extends AppCompatActivity {
                 }
                 txt = findViewById(R.id.fourth_spell_cd);
                 indicator = findViewById(R.id.fourth_indicator);
-                startSpellCountDown(txt, indicator,3);
+                startSpellCountDown(txt, indicator,3, 0);
                 break;
             case R.id.fifth_spell:
             case R.id.spell_btn5:
@@ -120,7 +121,7 @@ public class TrackerActivity extends AppCompatActivity {
                 }
                 txt = findViewById(R.id.fifth_spell_cd);
                 indicator = findViewById(R.id.fifth_indicator);
-                startSpellCountDown(txt, indicator,4);
+                startSpellCountDown(txt, indicator,4, 0);
                 break;
         }
     }
@@ -357,13 +358,110 @@ public class TrackerActivity extends AppCompatActivity {
     }
 
     public void onOkClicked(View view){
+        Button activity_btn;
+        switch (currHero){
+            case 0:
+                activity_btn = findViewById(R.id.lvl1);
+                switch (spells.get(0).getCurr_lvl()){
+                    case 0:
+                        activity_btn.setText(getString(R.string.ult_lvl1));
+                        break;
+                    case 1:
+                        activity_btn.setText(getString(R.string.ult_lvl2));
+                        break;
+                    case 2:
+                        activity_btn.setText(getString(R.string.ult_lvl3));
+                }
+                break;
+            case 1:
+                activity_btn = findViewById(R.id.lvl2);
+                switch (spells.get(1).getCurr_lvl()){
+                    case 0:
+                        activity_btn.setText(getString(R.string.ult_lvl1));
+                        break;
+                    case 1:
+                        activity_btn.setText(getString(R.string.ult_lvl2));
+                        break;
+                    case 2:
+                        activity_btn.setText(getString(R.string.ult_lvl3));
+                }
+                break;
+            case 2:
+                activity_btn = findViewById(R.id.lvl3);
+                switch (spells.get(2).getCurr_lvl()){
+                    case 0:
+                        activity_btn.setText(getString(R.string.ult_lvl1));
+                        break;
+                    case 1:
+                        activity_btn.setText(getString(R.string.ult_lvl2));
+                        break;
+                    case 2:
+                        activity_btn.setText(getString(R.string.ult_lvl3));
+                }
+                break;
+            case 3:
+                activity_btn = findViewById(R.id.lvl4);
+                switch (spells.get(3).getCurr_lvl()){
+                    case 0:
+                        activity_btn.setText(getString(R.string.ult_lvl1));
+                        break;
+                    case 1:
+                        activity_btn.setText(getString(R.string.ult_lvl2));
+                        break;
+                    case 2:
+                        activity_btn.setText(getString(R.string.ult_lvl3));
+                }
+                break;
+            case 4:
+                activity_btn = findViewById(R.id.lvl5);
+                switch (spells.get(4).getCurr_lvl()){
+                    case 0:
+                        activity_btn.setText(getString(R.string.ult_lvl1));
+                        break;
+                    case 1:
+                        activity_btn.setText(getString(R.string.ult_lvl2));
+                        break;
+                    case 2:
+                        activity_btn.setText(getString(R.string.ult_lvl3));
+                }
+                break;
 
-
+        }
         if(optionsDialog != null) optionsDialog.dismiss();
     }
 
     public void onRetroClicked(View view){
-
+        if(hasStarted[currHero]) {
+            TextView field;
+            ImageView indicator;
+            int spell_number = currHero;
+            switch (currHero){
+                case 0:
+                    field = findViewById(R.id.first_spell_cd);
+                    indicator = findViewById(R.id.first_indicator);
+                    break;
+                case 1:
+                    field = findViewById(R.id.second_spell_cd);
+                    indicator = findViewById(R.id.second_indicator);
+                    break;
+                case 2:
+                    field = findViewById(R.id.third_spell_cd);
+                    indicator = findViewById(R.id.third_indicator);
+                    break;
+                case 3:
+                    field = findViewById(R.id.fourth_spell_cd);
+                    indicator = findViewById(R.id.fourth_indicator);
+                    break;
+                case 4:
+                    field = findViewById(R.id.fifth_spell_cd);
+                    indicator = findViewById(R.id.fifth_indicator);
+                    break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + currHero);
+            }
+            cdTimer[currHero].cancel();
+            startSpellCountDown(field, indicator, spell_number, timeLeft[currHero]/1000);
+        }
     }
 
     public void onAghsClicked(View view){
@@ -406,79 +504,111 @@ public class TrackerActivity extends AppCompatActivity {
     }
 
     public void onAghsClickedDialog(View view){
+        CheckBox activity_aghs;
         switch(currHero){
             case 0:
+                activity_aghs = findViewById(R.id.aghs1);
                 if(((CheckBox) view).isChecked()){
                     spells.get(0).setCurr_aghs(true);
+                    activity_aghs.setChecked(true);
                 }else{
                     spells.get(0).setCurr_aghs(false);
+                    activity_aghs.setChecked(false);
                 }
                 break;
             case 1:
+                activity_aghs = findViewById(R.id.aghs2);
                 if(((CheckBox) view).isChecked()){
                     spells.get(1).setCurr_aghs(true);
+                    activity_aghs.setChecked(true);
                 }else{
                     spells.get(1).setCurr_aghs(false);
+                    activity_aghs.setChecked(false);
                 }
                 break;
             case 2:
+                activity_aghs = findViewById(R.id.aghs3);
                 if(((CheckBox) view).isChecked()){
                     spells.get(2).setCurr_aghs(true);
+                    activity_aghs.setChecked(true);
                 }else{
                     spells.get(2).setCurr_aghs(false);
+                    activity_aghs.setChecked(false);
                 }
                 break;
             case 3:
+                activity_aghs = findViewById(R.id.aghs4);
                 if(((CheckBox) view).isChecked()){
                     spells.get(3).setCurr_aghs(true);
+                    activity_aghs.setChecked(true);
                 }else{
                     spells.get(3).setCurr_aghs(false);
+                    activity_aghs.setChecked(false);
                 }
                 break;
             case 4:
+                activity_aghs = findViewById(R.id.aghs5);
                 if(((CheckBox) view).isChecked()){
                     spells.get(4).setCurr_aghs(true);
+                    activity_aghs.setChecked(true);
                 }else{
                     spells.get(4).setCurr_aghs(false);
+                    activity_aghs.setChecked(false);
                 }
         }
     }
 
     public void onTalentClickedDialog(View view){
+        CheckBox activity_talent;
         switch(currHero){
             case 0:
+                activity_talent = findViewById(R.id.talent1);
                 if(((CheckBox) view).isChecked()){
                     spells.get(0).setCurr_talent(true);
+                    activity_talent.setChecked(true);
                 }else{
                     spells.get(0).setCurr_talent(false);
+                    activity_talent.setChecked(false);
                 }
                 break;
             case 1:
+                activity_talent = findViewById(R.id.talent2);
                 if(((CheckBox) view).isChecked()){
                     spells.get(1).setCurr_talent(true);
+                    activity_talent.setChecked(true);
                 }else{
                     spells.get(1).setCurr_talent(false);
+                    activity_talent.setChecked(false);
                 }
                 break;
             case 2:
+                activity_talent = findViewById(R.id.talent3);
                 if(((CheckBox) view).isChecked()){
                     spells.get(2).setCurr_talent(true);
+                    activity_talent.setChecked(true);
                 }else{
                     spells.get(2).setCurr_talent(false);
+                    activity_talent.setChecked(false);
                 }
                 break;
             case 3:
+                activity_talent = findViewById(R.id.talent4);
                 if(((CheckBox) view).isChecked()){
                     spells.get(3).setCurr_talent(true);
+                    activity_talent.setChecked(true);
                 }else{
                     spells.get(3).setCurr_talent(false);
+                    activity_talent.setChecked(false);
                 }
                 break;
             case 4:
+                activity_talent = findViewById(R.id.talent5);
                 if(((CheckBox) view).isChecked()){
                     spells.get(4).setCurr_talent(true);
+                    activity_talent.setChecked(true);
                 }else{
                     spells.get(4).setCurr_talent(false);
+                    activity_talent.setChecked(false);
                 }
                 break;
         }
@@ -811,9 +941,9 @@ public class TrackerActivity extends AppCompatActivity {
      * @param indicator ImageView of the indicator for the spell
      * @param spell_number current Spell/Hero number
      */
-    public void startSpellCountDown(final TextView field, final ImageView indicator, final int spell_number){
+    public void startSpellCountDown(final TextView field, final ImageView indicator,
+                                    final int spell_number, long retro_active){
         final Spell spell = spells.get(spell_number);
-        final Hero hero = heroes.get(spell_number);
 
         float cooldown = spell.getCooldown();
         float lvl_red = spell.getLvl_reduction()[spell.getCurr_lvl()];
@@ -833,19 +963,30 @@ public class TrackerActivity extends AppCompatActivity {
         if(hasOctarine) octarine = 0.25f;       //25% for octarine
         cooldown = cooldown - lvl_red - aghs_red;          //subtract lvl based cd
 
-        //calculate the actual cooldown after boni and reductions
-        long calc_cooldown = 1000 * (long) cooldownCalc(cooldown, talent_red, octarine, neutral);
+        // calculate the actual cooldown after bonus and reductions and subtract if it was a
+        // retroactive call
+        long calc_cooldown = (long) cooldownCalc(cooldown, talent_red, octarine, neutral);
+        calc_cooldown = calc_cooldown - retro_active;
 
-        /*
-         * Color the indicator red and start the CountDownTimer to start the cooldown
-         */
+        //check if a retroactive cd would be <= 0, if so, abort the cd and display spell ready
+        if(calc_cooldown <= 0){
+            field.setText(getString(R.string.spell_ready));
+            indicator.setImageResource(R.drawable.ic_spell_ready);
+            return;
+        }else{
+            calc_cooldown = calc_cooldown*1000;
+        }
+
+        // Color the indicator red and start the CountDownTimer to start the cooldown
         indicator.setImageResource(R.drawable.ic_spell_not_ready);
         hasStarted[spell_number] = true;
-        cdTimer[spell_number] = new CountDownTimer(calc_cooldown, 995) {
+        final long finalCalc_cooldown = calc_cooldown;
+        cdTimer[spell_number] = new CountDownTimer(finalCalc_cooldown, 995) {
             @SuppressLint("SetTextI18n")
             @Override
             public void onTick(long millisUntilFinished) {
                 field.setText(""+(int)(millisUntilFinished/1000));
+                timeLeft[spell_number] = finalCalc_cooldown - millisUntilFinished;
             }
             @Override
             public void onFinish() {
