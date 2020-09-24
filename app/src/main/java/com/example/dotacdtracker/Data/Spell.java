@@ -31,8 +31,8 @@ public class Spell {
     public float getCooldown() {
         return cooldown;
     }
-    public float[] getLvl_reduction() {
-        return lvl_reduction;
+    public float getLvl_reduction(int index) {
+        return lvl_reduction[index];
     }
     public float getTalent_reduction() {
         return talent_reduction;

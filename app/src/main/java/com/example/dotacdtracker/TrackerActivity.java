@@ -946,7 +946,8 @@ public class TrackerActivity extends AppCompatActivity {
         final Spell spell = spells.get(spell_number);
 
         float cooldown = spell.getCooldown();
-        float lvl_red = spell.getLvl_reduction()[spell.getCurr_lvl()];
+        float lvl_red = 0;
+        if(spell.getCurr_lvl() != 0) lvl_red = spell.getLvl_reduction(spell.getCurr_lvl()-1);
         float talent_red = 0;
         float aghs_red = 0;
         boolean hasOctarine = spell.hasOctarine();
