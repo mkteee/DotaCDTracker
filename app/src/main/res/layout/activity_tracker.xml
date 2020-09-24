@@ -413,10 +413,11 @@
         app:layout_constraintBottom_toTopOf="@id/seperator_four"/>
     <Button
         android:id="@+id/neutral_button3"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
-        android:onClick="onNeutralClicked"
-        android:text="@string/_10s"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:onClick="onPauseClicked"
+        android:background="@android:color/holo_red_light"
+        android:text="@string/pause"
         app:layout_constraintStart_toEndOf="@id/neutral_button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tier1_indicator"

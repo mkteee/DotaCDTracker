@@ -37,8 +37,10 @@ public class TrackerActivity extends AppCompatActivity {
     ArrayList<Spell> spells = new ArrayList<>();
     CountDownTimer[] cdTimer = new CountDownTimer[8];
     long [] timeLeft = new long[5];
+    long [] pauseMillis = new long[3];      //1 roshan -- 2 aegis -- 3 neutral
     boolean[] hasStarted = new boolean[8];  //1-5 spells -- 6 roshan -- 7 aegis -- 8 neutral
     int currHero = 0;
+    boolean roshanSecondTimer = false;
 
     /**
      * After calling super it will extract the Hero objects given through their id.
@@ -126,6 +128,124 @@ public class TrackerActivity extends AppCompatActivity {
         }
     }
 
+    public void onPauseClicked(View view){
+        Button btn = (Button) view;
+        if(btn.getText().toString().equals("Pause")){
+            for(int i=0; i<8; i++){
+                if(hasStarted[i]){
+                    cdTimer[i].cancel();
+                }
+            }
+            btn.setText(getString(R.string.resume));
+            btn.setBackgroundColor(Color.parseColor("#1ac93a"));
+        }else{
+            for(int i=0; i<8; i++){
+                final TextView field;
+                final ImageView indicator;
+                if(hasStarted[i]){
+                    switch (i){
+                        case 0:
+                            field = findViewById(R.id.first_spell_cd);
+                            indicator = findViewById(R.id.first_indicator);
+                            startSpellCountDown(field, indicator, 0, timeLeft[0]/1000);
+                            break;
+                        case 1:
+                            field = findViewById(R.id.second_spell_cd);
+                            indicator = findViewById(R.id.second_indicator);
+                            startSpellCountDown(field, indicator, 0, timeLeft[1]/1000);
+                            break;
+                        case 2:
+                            field = findViewById(R.id.third_spell_cd);
+                            indicator = findViewById(R.id.third_indicator);
+                            startSpellCountDown(field, indicator, 0, timeLeft[2]/1000);
+                            break;
+                        case 3:
+                            field = findViewById(R.id.fourth_spell_cd);
+                            indicator = findViewById(R.id.fourth_indicator);
+                            startSpellCountDown(field, indicator, 0, timeLeft[3]/1000);
+                            break;
+                        case 4:
+                            field = findViewById(R.id.fifth_spell_cd);
+                            indicator = findViewById(R.id.fifth_indicator);
+                            startSpellCountDown(field, indicator, 0, timeLeft[4]/1000);
+                            break;
+                        case 5:
+                            field = findViewById(R.id.roshan_cd);
+                            indicator = findViewById(R.id.roshan_indicator);
+
+                            if(!roshanSecondTimer) {
+                                cdTimer[5] = new CountDownTimer(pauseMillis[0], 995) {
+                                    @SuppressLint({"SetTextI18n", "DefaultLocale"})
+                                    @Override
+                                    public void onTick(long millisUntilFinished) {
+                                        field.setText("Not up " + String.format("%d:%02d ",
+                                                TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished),
+                                                TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
+                                                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+                                        pauseMillis[0] = millisUntilFinished;
+                                    }
+
+                                    @Override
+                                    public void onFinish() {
+                                        indicator.setImageResource(R.drawable.ic_spell_maybe);
+
+                                        //start other timer
+                                        startRoshanSpawnRangeTimer();
+                                    }
+                                }.start();
+                            }else{
+                                cdTimer[5] = new CountDownTimer(180000-pauseMillis[0], 995) {
+                                    @SuppressLint({"SetTextI18n", "DefaultLocale"})
+                                    @Override
+                                    public void onTick(long millisUntilFinished) {
+                                        field.setText("Maybe up "+String.format("%d:%02d ",
+                                                TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
+                                                TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
+                                                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+                                        pauseMillis[0] = millisUntilFinished;
+                                    }
+                                    @Override
+                                    public void onFinish() {
+                                        field.setText(getString(R.string.roshan_up));
+                                        indicator.setImageResource(R.drawable.ic_spell_maybe);
+                                        hasStarted[5] = false;
+                                    }
+                                }.start();
+
+                            }
+                            break;
+                        case 6:
+                            field = findViewById(R.id.aegis_cd);
+                            indicator = findViewById(R.id.aegis_indicator);
+                            hasStarted[6] = true;
+                            cdTimer[6] = new CountDownTimer(pauseMillis[1], 995) {
+                                @SuppressLint({"SetTextI18n", "DefaultLocale"})
+                                @Override
+                                public void onTick(long millisUntilFinished) {
+                                    field.setText(""+String.format("%d:%02d ",
+                                            TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
+                                            TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
+                                                    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+                                    pauseMillis[1] = millisUntilFinished;
+                                }
+                                @Override
+                                public void onFinish() {
+                                    field.setText(getString(R.string.aegis_down));
+                                    indicator.setImageResource(R.drawable.ic_spell_ready);
+                                    hasStarted[6] = false;
+                                }
+                            }.start();
+                            break;
+                        case 7:
+                    }
+                }
+            }
+            btn.setText(getString(R.string.pause));
+            btn.setBackgroundColor(Color.parseColor("#ffff4444"));
+        }
+
+    }
+
     /**
      * Neutral item timer. Destroys current timer and sets a new one after next tier is reached.
      * Timings are:
@@ -151,9 +271,6 @@ public class TrackerActivity extends AppCompatActivity {
                 break;
             case R.id.neutral_button2:
                 startNeutralTimer(440000, (ImageView) findViewById(R.id.tier1_indicator));
-                break;
-            case R.id.neutral_button3:
-                break;
         }
     }
 
@@ -175,6 +292,7 @@ public class TrackerActivity extends AppCompatActivity {
                         TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
                         TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
                                 TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+                pauseMillis[2] = millisUntilFinished;
             }
             @Override
             public void onFinish() {
@@ -214,6 +332,7 @@ public class TrackerActivity extends AppCompatActivity {
 
         indicator.setImageResource(R.drawable.ic_spell_not_ready);
         hasStarted[5] = true;
+        roshanSecondTimer = false;
         cdTimer[5] = new CountDownTimer(480000, 995) {
             @SuppressLint({"SetTextI18n", "DefaultLocale"})
             @Override
@@ -222,6 +341,7 @@ public class TrackerActivity extends AppCompatActivity {
                         TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
                         TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
                                 TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+                pauseMillis[0] = millisUntilFinished;
             }
             @Override
             public void onFinish() {
@@ -240,6 +360,7 @@ public class TrackerActivity extends AppCompatActivity {
     public void startRoshanSpawnRangeTimer(){
         final TextView field = findViewById(R.id.roshan_cd);
         final ImageView indicator = findViewById(R.id.roshan_indicator);
+        roshanSecondTimer = true;
         cdTimer[5] = new CountDownTimer(180000, 995) {
             @SuppressLint({"SetTextI18n", "DefaultLocale"})
             @Override
@@ -248,6 +369,7 @@ public class TrackerActivity extends AppCompatActivity {
                         TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
                         TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
                                 TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+                pauseMillis[0] = millisUntilFinished;
             }
             @Override
             public void onFinish() {
@@ -275,6 +397,7 @@ public class TrackerActivity extends AppCompatActivity {
                         TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
                         TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
                                 TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+                pauseMillis[1] = millisUntilFinished;
             }
             @Override
             public void onFinish() {
