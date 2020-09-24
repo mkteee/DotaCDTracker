@@ -11,7 +11,6 @@
         android:id="@+id/quickening"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onQuickeningClicked"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/octarine"
         app:layout_constraintBottom_toTopOf="@id/prism" />
@@ -20,7 +19,6 @@
         android:id="@+id/prism"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onPrismClicked"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/octarine"

@@ -11,7 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import com.example.dotacdtracker.MainActivity;
 import com.example.dotacdtracker.R;
+import com.example.dotacdtracker.TrackerActivity;
+
+import java.util.Objects;
 
 public class OptionsFragment extends DialogFragment {
 
@@ -35,6 +39,17 @@ public class OptionsFragment extends DialogFragment {
         octarine = view.findViewById(R.id.octarine);
         quickening = view.findViewById(R.id.quickening);
         prism = view.findViewById(R.id.prism);
+
+        quickening.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                ((TrackerActivity) Objects.requireNonNull(getActivity())).onQuickeningClicked(quickening, prism);
+            }
+        });
+        prism.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                ((TrackerActivity) Objects.requireNonNull(getActivity())).onPrismClicked(prism, quickening);
+            }
+        });
 
         return view;
     }

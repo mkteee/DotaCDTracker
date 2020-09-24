@@ -215,4 +215,5 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("heroes_string", heroes_string);
         startActivity(intent);
     }
+
 }

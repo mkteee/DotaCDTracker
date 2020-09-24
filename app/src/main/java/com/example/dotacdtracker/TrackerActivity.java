@@ -484,9 +484,7 @@ public class TrackerActivity extends AppCompatActivity {
         }
     }
 
-    public void onQuickeningClicked(View view){
-        CheckBox quickening = (CheckBox) view;
-        CheckBox prism = (CheckBox) findViewById(R.id.prism);
+    public void onQuickeningClicked(CheckBox quickening, CheckBox prism){
         switch (currHero){
             case 0:
                 if(quickening.isChecked()){
@@ -545,9 +543,7 @@ public class TrackerActivity extends AppCompatActivity {
         }
     }
 
-    public void onPrismClicked(View view){
-        CheckBox prism = (CheckBox) view;
-        CheckBox quickening = (CheckBox) findViewById(R.id.quickening);
+    public void onPrismClicked(CheckBox prism, CheckBox quickening){
         switch (currHero) {
             case 0:
                 if (prism.isChecked()) {
@@ -827,18 +823,18 @@ public class TrackerActivity extends AppCompatActivity {
         boolean hasQuickening = spell.hasQuickening();
         boolean hasPrism = spell.hasPrism();
 
-        if(hero.isAghs_Active()) aghs_red = spell.getAghs_reduction();
-        if(hero.isTalent_Active()) talent_red = spell.getTalent_reduction();
+        if(spell.hasAghs()) aghs_red = spell.getAghs_reduction();
+        if(spell.hasTalent()) talent_red = spell.getTalent_reduction();
 
         float octarine = 0;
         float neutral = 0;
         if(hasQuickening) neutral = 0.13f;      //13% for quickening
         if(hasPrism) neutral = 0.2f;            //20% for prism
         if(hasOctarine) octarine = 0.25f;       //25% for octarine
-        cooldown = cooldown - lvl_red;          //subtract lvl based cd
+        cooldown = cooldown - lvl_red - aghs_red;          //subtract lvl based cd
 
         //calculate the actual cooldown after boni and reductions
-        long calc_cooldown = 1000 * (long) cooldownCalc(cooldown, talent_red, octarine, neutral, aghs_red);
+        long calc_cooldown = 1000 * (long) cooldownCalc(cooldown, talent_red, octarine, neutral);
 
         /*
          * Color the indicator red and start the CountDownTimer to start the cooldown
@@ -867,11 +863,9 @@ public class TrackerActivity extends AppCompatActivity {
      * @param talent if hero has percent based talent (or flat reduction)
      * @param octarine if hero has octarine equipped
      * @param neutral if hero has a neutral item equipped
-     * @param aghs flat reduction
      * @return the calculated actual cooldown after reduction
      */
-    public float cooldownCalc(float cooldown, float talent, float octarine, float neutral,
-                             float aghs){
+    public float cooldownCalc(float cooldown, float talent, float octarine, float neutral){
         float talent_flat = 0;
         float talent_percent = 0;
 
@@ -880,7 +874,7 @@ public class TrackerActivity extends AppCompatActivity {
         }else{
             talent_flat = talent;
         }
-        cooldown = cooldown - talent_flat - aghs;
+        cooldown = cooldown - talent_flat;
         return (cooldown * (1- talent_percent) * (1-octarine) * (1-neutral));
     }
 
