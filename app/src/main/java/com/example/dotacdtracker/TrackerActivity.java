@@ -935,29 +935,31 @@ public class TrackerActivity extends AppCompatActivity {
         }
     }
 
-    public void onResetClicked(View view){
-        cdTimer[currHero].cancel();
-        switch (currHero){
-            case 0:
-                ((TextView) findViewById(R.id.first_spell_cd)).setText(getString(R.string.spell_ready));
-                ((ImageView) findViewById(R.id.first_indicator)).setImageResource(R.drawable.ic_spell_ready);
-                break;
-            case 1:
-                ((TextView) findViewById(R.id.second_spell_cd)).setText(getString(R.string.spell_ready));
-                ((ImageView) findViewById(R.id.second_indicator)).setImageResource(R.drawable.ic_spell_ready);
-                break;
-            case 2:
-                ((TextView) findViewById(R.id.third_spell_cd)).setText(getString(R.string.spell_ready));
-                ((ImageView) findViewById(R.id.third_indicator)).setImageResource(R.drawable.ic_spell_ready);
-                break;
-            case 3:
-                ((TextView) findViewById(R.id.fourth_spell_cd)).setText(getString(R.string.spell_ready));
-                ((ImageView) findViewById(R.id.fourth_indicator)).setImageResource(R.drawable.ic_spell_ready);
-                break;
-            case 4:
-                ((TextView) findViewById(R.id.fifth_spell_cd)).setText(getString(R.string.spell_ready));
-                ((ImageView) findViewById(R.id.fifth_indicator)).setImageResource(R.drawable.ic_spell_ready);
-                break;
+    public void onResetClicked(View view) {
+        if (hasStarted[currHero]) {
+            cdTimer[currHero].cancel();
+            switch (currHero) {
+                case 0:
+                    ((TextView) findViewById(R.id.first_spell_cd)).setText(getString(R.string.spell_ready));
+                    ((ImageView) findViewById(R.id.first_indicator)).setImageResource(R.drawable.ic_spell_ready);
+                    break;
+                case 1:
+                    ((TextView) findViewById(R.id.second_spell_cd)).setText(getString(R.string.spell_ready));
+                    ((ImageView) findViewById(R.id.second_indicator)).setImageResource(R.drawable.ic_spell_ready);
+                    break;
+                case 2:
+                    ((TextView) findViewById(R.id.third_spell_cd)).setText(getString(R.string.spell_ready));
+                    ((ImageView) findViewById(R.id.third_indicator)).setImageResource(R.drawable.ic_spell_ready);
+                    break;
+                case 3:
+                    ((TextView) findViewById(R.id.fourth_spell_cd)).setText(getString(R.string.spell_ready));
+                    ((ImageView) findViewById(R.id.fourth_indicator)).setImageResource(R.drawable.ic_spell_ready);
+                    break;
+                case 4:
+                    ((TextView) findViewById(R.id.fifth_spell_cd)).setText(getString(R.string.spell_ready));
+                    ((ImageView) findViewById(R.id.fifth_indicator)).setImageResource(R.drawable.ic_spell_ready);
+                    break;
+            }
         }
     }
     public void onLvlClickedDialog(View view){
