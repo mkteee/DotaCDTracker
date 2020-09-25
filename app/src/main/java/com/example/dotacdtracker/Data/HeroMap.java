@@ -68,7 +68,7 @@ public class HeroMap {
 
     private static final Hero wk = new Hero("Wraith King", "Reincarnation", 200,
             false, false, true, 0, 0,
-            new float[]{80, 160}, "reincarnation_icon", "wraith_king_icon", "wk");
+            new float[]{80, 160}, "reincarnation_icon", "wraith_king_icon", "wraith_king");
 
     private static final Hero faceless_void = new Hero("Faceless Void", "Chronosphere", 160,
             false, false, false, 0, 0,
