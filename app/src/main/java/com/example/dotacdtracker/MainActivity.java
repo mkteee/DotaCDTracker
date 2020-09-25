@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void onContinueClicked(View view){
 
-        if(heroes.get(0) == null) return;
+        if(HEROES_ADDED < 1) return;
 
         Intent intent = new Intent(this, TrackerActivity.class);
         String [] heroes_string = new String[HEROES_ADDED];
