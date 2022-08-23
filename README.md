@@ -10,4 +10,6 @@ _Functionalities:_
 - Possible to take into account cooldown affecting items, levels and talents.
 - Possible to retroactively reduce the timer if the user forgets to input the affecting items/levels/talents.
 
+##### This is how the app looks, when everything is setup:
+
 ![Sample Screenshot](https://github.com/mkteee/DotaCDTracker/blob/master/sample_screenshot.jpg?raw=true)
